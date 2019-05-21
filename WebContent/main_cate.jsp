@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +20,72 @@
 	href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+
+<style>
+.courses {
+	padding-top: 20px;
+	!
+	important;
+}
+/* Fixed sidenav, full height */
+.sidenav {
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+	padding: 6px 8px 6px 16px;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	outline: none;
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.45);
+	display: inline-block;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+	color: #f1f1f1;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+	color: black;
+	font-weight: bold;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+	display: none;
+	padding-left: 2vh;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+	float: right;
+	padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
+}
+</style>
 </head>
 <body>
 	<div class="super_container">
@@ -51,12 +117,12 @@
 					</div>
 				</div>
 		</header>
-		
+
 
 		<!-- Home -->
 
-		
-		
+
+
 		<!-- 광고 -->
 		<div class="top_bar d-block">
 			<div id="carouselExampleInterval" class="carousel slide"
@@ -112,15 +178,409 @@
 				</a>
 			</div>
 		</div>
-		 
+
 		<div>
-		<hr>
+			<hr>
 		</div>
 		<!-- 본문시작 -->
 		<div class="container">
+			<div class="row">
+				<div class="col-2 categorylist">
+					<h3>강의유형</h3>
+					<hr>
+					<div class="sidenav">
+						<button class="dropdown-btn">
+							카테고리 <i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-container">
+							<a href="#">디자인</a> <a href="#">외국어</a> <a href="#">컴퓨터</a> <a
+								href="#">마케팅</a> <a href="#">커뮤니케이션</a> <a href="#">문서,취업</a> <a
+								href="#">영상,사진</a> <a href="#">스포츠</a> <a href="#">음악,악기</a> <a
+								href="#">취미</a> <a href="#">기타</a>
+						</div>
+						<button class="dropdown-btn">
+							강의종류 <i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-container">
+							<a href="#">원데이</a> <a href="#">일반레슨</a>
+						</div>
+						<button class="dropdown-btn">
+							강사성별 <i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-container">
+							<a href="#">남자</a> <a href="#">여자</a>
+						</div>
+						<button class="dropdown-btn">
+							레슨모집인원 <i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-container">
+							<a href="#">개인레슨</a> <a href="#">소규모(2~4)</a> <a href="#">대규모(5~)</a>
+						</div>
+						<button class="dropdown-btn">
+							가격 <i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-container">
+							<a href="#">~5만원</a> <a href="#">5~10만원</a> <a href="#">10만원~</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-10">
 
-		
-						
+					<div class="rf">
+						<div class="form-group">
+							<select class="form-control" id="sel1">
+								<option>최신순</option>
+								<option>별점순</option>
+								<option>인원순</option>
+							</select>
+						</div>
+					</div>
+					<div class="lecturelist">
+
+						<!-- Courses -->
+
+						<div class="courses">
+							<div class="container">
+								<div class="row courses_row">
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_4.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">English</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark course_free trans_200">
+													<a href="#">Free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_5.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">Spanish</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark course_free trans_200">
+													<a href="#">Free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_6.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">English</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark trans_200">
+													<a href="#">$45</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_7.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">English</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark course_free trans_200">
+													<a href="#">Free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_8.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">Spanish</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark course_free trans_200">
+													<a href="#">Free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_9.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">English</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark trans_200">
+													<a href="#">$45</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_10.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">English</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark course_free trans_200">
+													<a href="#">Free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_11.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">Spanish</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark course_free trans_200">
+													<a href="#">Free</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Course -->
+									<div class="col-lg-4 course_col">
+										<div class="course">
+											<div class="course_image">
+												<img src="images/course_12.jpg" alt="">
+											</div>
+											<div class="course_body">
+												<div class="course_title">
+													<a href="course.html">Vocabulary</a>
+												</div>
+												<div class="course_info">
+													<ul>
+														<li><a href="instructors.html">Sarah Parker</a></li>
+														<li><a href="#">English</a></li>
+													</ul>
+												</div>
+												<div class="course_text">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing
+														elit. Fusce enim nulla.</p>
+												</div>
+											</div>
+											<div
+												class="course_footer d-flex flex-row align-items-center justify-content-start">
+												<div class="course_students">
+													<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
+												</div>
+												<div class="course_rating ml-auto">
+													<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
+												</div>
+												<div class="course_mark trans_200">
+													<a href="#">$45</a>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<div class="load_more_button">
+											<a href="#">load more</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- Footer -->
 
@@ -216,7 +676,23 @@
 			</div>
 		</footer>
 
+		<script>
+			/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+			var dropdown = document.getElementsByClassName("dropdown-btn");
+			var i;
 
+			for (i = 0; i < dropdown.length; i++) {
+				dropdown[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var dropdownContent = this.nextElementSibling;
+					if (dropdownContent.style.display === "block") {
+						dropdownContent.style.display = "none";
+					} else {
+						dropdownContent.style.display = "block";
+					}
+				});
+			}
+		</script>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="styles/bootstrap4/popper.js"></script>
 		<script src="styles/bootstrap4/bootstrap.min.js"></script>
