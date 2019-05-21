@@ -41,6 +41,9 @@
 /*
 0.내가만든것들
 */
+.vb{
+	height: 80px;
+}
 .font-log{
 	font-size: 14px;
 	font-weight: 600;
@@ -305,7 +308,7 @@ section
 }
 .header.scrolled
 {
-	top: -64px;
+	top: 0px;
 }
 
 /*********************************
