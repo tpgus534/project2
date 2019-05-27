@@ -22,147 +22,7 @@
 	href="plugins/OwlCarousel2-2.2.1/animate.css">
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
-<style>
-.star {
-	width: 100px;
-}
-.cb {
-	clear: both;
-}
-.lec-simple>div>div {
-	display: inline-block;
-}
-.lec-simple {
-	padding: 20px 0px 20px 0px;
-}
-.likelist {
-	height: 2rem;
-	border: 1px solid;
-}
-.subject {
-	
-}
-.lec-date {
-	height: 200px;
-	border: 1px solid;
-}
-.lec-add {
-	height: 200px;
-	border: 1px solid;
-}
-.lec-about {
-	padding: 30px 30px 30px 30px;
-	border: 1px solid;
-}
-.tp {
-	padding-left: 0px;
-	padding-right: 0px;
-}
-.teacher-profile {
-	border: 1px solid;
-	height: 500px;
-}
-.image_outer_container {
-	margin-top: 50px;
-	margin-bottom: auto;
-	border-radius: 50%;
-	position: relative;
-}
-.image_inner_container {
-	border-radius: 50%;
-	padding: 5px;
-	background: #833ab4;
-	background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
-	background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
-}
-.image_inner_container img {
-	height: 100px;
-	width: 100px;
-	border-radius: 50%;
-	border: 5px solid white;
-}
-.image_outer_container .green_icon {
-	background-color: #4cd137;
-	position: absolute;
-	right: 30px;
-	bottom: 10px;
-	height: 30px;
-	width: 30px;
-	border: 5px solid white;
-	border-radius: 50%;
-	z-index: 100;
-}
-.lec {
-	border: 1px solid;
-}
-.lec-img {
-	border: 1px solid;
-	position: relative;
-	width: 100%;
-	height: 0;
-	overflow: hidden;
-	padding-bottom: 56.26%;
-}
-nav>ul>li>a {
-	font-size: 14px;
-	font-weight: 600;
-	color: rgba(0, 0, 0, 0.45);
-	display: inline-block;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
-}
-nav>ul>li {
-	font-size: 13px;
-	border: 1px solid;
-	width: 12vh;
-	height: 5vh;
-	text-align: center;
-	padding-top: 15px;
-	border: 1px solid;
-}
-nav {
-	padding-left: 0px;
-	padding-right: 0px;
-	background-color: white;
-	!
-	important;
-}
-.size {
-	width: 100%;
-	border: 1px solid;
-}
-/* Style the navbar */
-#navbar {
-	overflow: hidden;
-}
-/* Navbar links */
-#navbar a {
-	text-align: center;
-	text-decoration: none;
-}
-/* Page content */
-.content {
-	padding: 16px;
-}
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-	position: fixed;
-	padding-left: 30px;
-	padding-right: 30px;
-	top: 80px;
-	width: 79vh;
-	left: 14vh;
-	z-index: 100;
-}
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
-.sticky+.content {
-	padding-top: 60px;
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="styles/sehyun.css">
 </head>
 <body data-spy="scroll" data-target=".navbar">
 	<div class="super_container">
@@ -282,7 +142,7 @@ nav {
 						<!-- Section 1 -->
 						<div class="size" id="section1">
 							<h1>서비스설명</h1>
-							<p>
+							<div class="small-font">
 								서비스 설명 경력 및 자격사항 : <br> ＊AIDA+SSI+PADI<br> instructor<br>
 								＊EFR (Emergency First Response)응급구조사<br> ＊SSI REACT
 								RIGHT(FA.CPR.AED)<br> ＊CMAS NAUI PADI scuba diver<br>
@@ -296,7 +156,7 @@ nav {
 								개방 수역 1회 다이빙 <br> 공기 공간 압력 평형(Equalization)입수법: Head First
 								dive, Duck dive <br> 핀 사용 발차기: 바이핀 킥 <br> 수직하강 (CWT) :
 								수심 10m <br> 자유하강 (FIM) : 수심 10m<br>
-							</p>
+							</div>
 						</div>
 						<div class="size" id="section2">
 							<h1>가격정보</h1>
@@ -363,13 +223,49 @@ nav {
 								</div>
 								<hr>
 
-								<a href="#" class="btn btn-block btn-primary btn-default">구매하기</a>
+								<a href="#" class="btn btn-block btn-primary btn-default" style="background-color:#2e21df">구매하기</a>
 
 							</div>
 							<!-- 장소 -->
 							<div class="lec-add"></div>
 							<!-- 날짜 -->
-							<div class="lec-date"></div>
+							<div class="lec-date">
+							
+								<button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">월</button>
+								<button class="tablink"
+									onclick="openPage('News', this)">화</button>
+								<button class="tablink"
+									onclick="openPage('Contact', this)">수</button>
+								<button class="tablink"
+									onclick="openPage('About', this)">목</button>
+								<button class="tablink"
+									onclick="openPage('About', this)">금</button>
+								<button class="tablink"
+									onclick="openPage('About', this)">토</button>
+								<button class="tablink"
+									onclick="openPage('About', this)">일</button>
+								
+
+								<div id="Home" class="tabcontent">
+									<h3>Home</h3>
+									<p>Home is where the heart is..</p>
+								</div>
+
+								<div id="News" class="tabcontent">
+									<h3>News</h3>
+									<p>Some news this fine day!</p>
+								</div>
+
+								<div id="Contact" class="tabcontent">
+									<h3>Contact</h3>
+									<p>Get in touch, or swing by for a cup of coffee.</p>
+								</div>
+
+								<div id="About" class="tabcontent">
+									<h3>About</h3>
+									<p>Who we are and what we do.</p>
+								</div>
+							</div>
 							<!-- 선생프로필 -->
 							<div class="teacher-profile">
 								<div class="d-flex justify-content-center">
@@ -478,38 +374,65 @@ nav {
 					</div>
 				</div>
 			</div>
-			<script type="text/javascript">
-				//When the user scrolls the page, execute myFunction 
-				window.onscroll = function() {
-					myFunction()
-				};
-				// Get the navbar
-				var navbar = document.getElementById("navbar");
-				// Get the offset position of the navbar
-				var sticky = navbar.offsetTop;
-				// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-				function myFunction() {
-					if (window.pageYOffset >= sticky) {
-						navbar.classList.add("sticky")
-					} else {
-						navbar.classList.remove("sticky");
-					}
-				}
-				var offset;
-				$('.navbar li a').click(function(event) {
-					if (window.pageYOffset < sticky) {
-						offset = 215;
-					} else {
-						offset = 150;
-					}
-					event.preventDefault();
-					$($(this).attr('href'))[0].scrollIntoView();
-					scrollBy(0, -offset);
-				});
-			</script>
+
 		</footer>
 
+		<script type="text/javascript">
+			//When the user scrolls the page, execute myFunction 
+			window.onscroll = function() {
+				myFunction()
+			};
+			// Get the navbar
+			var navbar = document.getElementById("navbar");
+			// Get the offset position of the navbar
+			var sticky = navbar.offsetTop;
+			// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+			function myFunction() {
+				if (window.pageYOffset >= sticky) {
+					navbar.classList.add("sticky")
+				} else {
+					navbar.classList.remove("sticky");
+				}
+			}
+			var offset;
+			$('.navbar li a').click(function(event) {
+				if (window.pageYOffset < sticky) {
+					offset = 215;
+				} else {
+					offset = 150;
+				}
+				event.preventDefault();
+				$($(this).attr('href'))[0].scrollIntoView();
+				scrollBy(0, -offset);
+			});
+		
+			
+			function openPage(pageName, elmnt) {
+				// Hide all elements with class="tabcontent" by default */
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
 
+				// Remove the background color of all tablinks/buttons
+				tablinks = document.getElementsByClassName("tablink");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].style.backgroundColor = "";
+					tablinks[i].style.color = 'black';
+				}
+
+				// Show the specific tab content
+				document.getElementById(pageName).style.display = "block";
+
+				// Add the specific color to the button used to open the tab content
+				elmnt.style.backgroundColor = '#2e21df';
+				elmnt.style.color = 'white';
+			}
+
+			// Get the element with id="defaultOpen" and click on it
+			document.getElementById("defaultOpen").click();
+		</script>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="styles/bootstrap4/popper.js"></script>
 		<script src="styles/bootstrap4/bootstrap.min.js"></script>

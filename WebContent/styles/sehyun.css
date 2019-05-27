@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/*날짜 버튼시작*/
+/* Style tab links */
+.tablink {
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	width: 14.28%;
+	position: relative;
+	z-index: 2;
+}
+
+.tablink:hover {
+	background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+	color: white;
+	display: none;
+	padding: 100px 20px 30px 20px;
+	height: 100%;
+	z-index: 1;
+}
+/*날짜버튼 끝*/
+.small-font {
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	line-height: 1.71;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.5);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+.middle-font {
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	line-height: 1.71;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.5);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+.big-font {
+	font-family: 'Poppins', sans-serif;
+	font-size: 24px;
+	line-height: 1.71;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.5);
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	font-weight: bold;
+}
+
+.star {
+	width: 100px;
+}
+
+.cb {
+	clear: both;
+}
+
+.lec-simple>div>div {
+	display: inline-block;
+}
+
+.lec-simple {
+	padding: 20px 0px 20px 0px;
+}
+
+.likelist {
+	height: 2rem;
+	border: 1px solid;
+}
+
+.subject {
+	
+}
+
+.lec-date {
+	border: 1px solid;
+	position: relative;
+}
+
+.lec-add {
+	height: 200px;
+	border: 1px solid;
+}
+
+.lec-about {
+	padding: 30px 30px 30px 30px;
+	border: 1px solid;
+}
+
+.tp {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.teacher-profile {
+	border: 1px solid;
+	height: 500px;
+}
+
+.image_outer_container {
+	margin-top: 50px;
+	margin-bottom: auto;
+	border-radius: 50%;
+	position: relative;
+}
+
+.image_inner_container {
+	border-radius: 50%;
+	padding: 5px;
+	background: #833ab4;
+	background: -webkit-linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
+	background: linear-gradient(to bottom, #fcb045, #fd1d1d, #833ab4);
+}
+
+.image_inner_container img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	border: 5px solid white;
+}
+
+.image_outer_container .green_icon {
+	background-color: #4cd137;
+	position: absolute;
+	right: 30px;
+	bottom: 10px;
+	height: 30px;
+	width: 30px;
+	border: 5px solid white;
+	border-radius: 50%;
+	z-index: 100;
+}
+
+.lec {
+	border: 1px solid;
+}
+
+.lec-img {
+	border: 1px solid;
+	position: relative;
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 56.26%;
+}
+
+nav>ul>li>a {
+
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.45);
+	display: inline-block;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+
+nav>ul>li {
+		vertical-align:middle;
+	font-size: 13px;
+	border: 1px solid;
+	width: 12vh;
+	height: 5vh;
+	padding-top:1vh;
+	text-align: center;
+	border: 1px solid;
+}
+nav>ul{
+	display: table;
+}
+nav {
+	padding-left: 0px;
+	padding-right: 0px;
+	background-color: white;
+	!
+	important;
+}
+
+.size {
+	width: 100%;
+	border: 1px solid;
+}
+/* Style the navbar */
+#navbar {
+	overflow: hidden;
+}
+/* Navbar links */
+#navbar a {
+	text-align: center;
+	text-decoration: none;
+}
+/* Page content */
+.content {
+	padding: 16px;
+}
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+	position: fixed;
+	padding-left: 30px;
+	padding-right: 30px;
+	top: 80px;
+	width: 79vh;
+	z-index: 100;
+}
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky+.content {
+	padding-top: 60px;
+}
