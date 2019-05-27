@@ -22,8 +22,24 @@
 <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/responsive.css">
 <style>
+.lec-simple{
+	width : 100%;
+	height : 25rem;
+	border: 1px solid;
+}
+.lec-date{
+	width : 100%;
+	height : 15rem;
+	border: 1px solid;
+}
+.tea-detail{
+	width : 100%;
+	height : 25rem;
+	border: 1px solid;
+}
 .lec {
 	border: 1px solid;
+	position: relative;
 }
 
 .lec-img {
@@ -58,7 +74,6 @@ nav>ul>li {
 }
 
 nav {
-
 	padding-left: 0px;
 	padding-right: 0px;
 	background-color: white;
@@ -92,8 +107,6 @@ nav {
 	padding-left:30px;
 	padding-right:30px;
 	top: 80px;
-	width: 79vh;
-	left:14vh;
 	z-index: 100;
 }
 
@@ -246,10 +259,23 @@ nav {
 								while scrolling!</p>
 						</div>
 
+					<div id="section6" class="comment">댓글들어갈부분</div>
 					</div>
 
-					<div id="section6" class="comment">댓글들어갈부분</div>
-					<div class="col-4">2</div>
+					<div class="col-4">
+						<div class="lec-simple">
+							강의 간략 외 구매버튼
+						</div>
+						<div class="lec-date"><!-- 강의가능날짜 -->
+							날짜
+						</div>
+						<div class="lec-add">
+							장소
+						</div>
+						<div class="tea-detail"><!-- 강사상세내용 -->
+							강사상세내용
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
