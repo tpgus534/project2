@@ -222,29 +222,37 @@
 									<div class="cb"></div>
 								</div>
 								<hr>
-
-								<a href="#" class="btn btn-block btn-primary btn-default" style="background-color:#2e21df">구매하기</a>
+								
+									
+								
+					
+								<a href="#" class="btn btn-block btn-primary btn-default"
+									style="background-color: #2e21df">구매하기(160,000원)</a>
 
 							</div>
 							<!-- 장소 -->
-							<div class="lec-add"></div>
+							<div class="lec-add">
+								<div class="big-font">강의 장소</div>
+								<div class="padd">
+									<ul>
+										<li>경기도 성남시</li>
+										<li>경기도 성남시</li>
+										<li>경기도 성남시</li>
+									</ul>
+								</div>
+							</div>
 							<!-- 날짜 -->
 							<div class="lec-date">
-							
-								<button class="tablink" onclick="openPage('Home', this)" id="defaultOpen">월</button>
-								<button class="tablink"
-									onclick="openPage('News', this)">화</button>
-								<button class="tablink"
-									onclick="openPage('Contact', this)">수</button>
-								<button class="tablink"
-									onclick="openPage('About', this)">목</button>
-								<button class="tablink"
-									onclick="openPage('About', this)">금</button>
-								<button class="tablink"
-									onclick="openPage('About', this)">토</button>
-								<button class="tablink"
-									onclick="openPage('About', this)">일</button>
-								
+
+								<button class="tablink" onclick="openPage('Home', this)"
+									id="defaultOpen">월</button>
+								<button class="tablink" onclick="openPage('News', this)">화</button>
+								<button class="tablink" onclick="openPage('Contact', this)">수</button>
+								<button class="tablink" onclick="openPage('About', this)">목</button>
+								<button class="tablink" onclick="openPage('About', this)">금</button>
+								<button class="tablink" onclick="openPage('About', this)">토</button>
+								<button class="tablink" onclick="openPage('About', this)">일</button>
+
 
 								<div id="Home" class="tabcontent">
 									<h3>Home</h3>
@@ -267,13 +275,36 @@
 								</div>
 							</div>
 							<!-- 선생프로필 -->
-							<div class="teacher-profile">
-								<div class="d-flex justify-content-center">
+							<div class="teacher-profile container">
+								<div class="d-flex justify-content-center pb-3">
 									<div class="image_outer_container">
 										<div class="image_inner_container">
 											<img src="./images/member/Guest.png">
 										</div>
 									</div>
+								</div>
+								
+								<!-- 여기까지사진 -->
+								<div class="big-font text-center  pb-3">
+									강사 이름
+								</div>
+					
+								<div>
+								<a href="#" class="btn btn-block btn-primary btn-default"
+									style="background-color: #2e21df">전문가에게 문의하기</a>
+								</div>
+								<div class="small-font">※너무 늦은 밤에는 연락이 되지 않을 수 있습니다.</div>
+								<hr>
+							
+								<div class="text-center">
+									강의횟수
+									만족도
+									
+								</div>
+								<hr>
+								<div>
+									강사 소개<br>
+									안녕하세요 1타강사 이세현입니다.<br> 1타강사는 무슨 ui 뒤져랏!
 								</div>
 							</div>
 						</div>
@@ -405,8 +436,7 @@
 				$($(this).attr('href'))[0].scrollIntoView();
 				scrollBy(0, -offset);
 			});
-		
-			
+
 			function openPage(pageName, elmnt) {
 				// Hide all elements with class="tabcontent" by default */
 				var i, tabcontent, tablinks;

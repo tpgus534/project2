@@ -1,6 +1,11 @@
 @charset "UTF-8";
 /*날짜 버튼시작*/
 /* Style tab links */
+
+.padd{
+	padding:20px 20px;
+	
+}
 .tablink {
 	float: left;
 	border: none;
@@ -90,8 +95,8 @@
 }
 
 .lec-add {
-	height: 200px;
 	border: 1px solid;
+	padding: 30px 20px;
 }
 
 .lec-about {
@@ -106,11 +111,11 @@
 
 .teacher-profile {
 	border: 1px solid;
-	height: 500px;
+	padding: 50px 20px;
 }
 
 .image_outer_container {
-	margin-top: 50px;
+	margin-top: 30px;
 	margin-bottom: auto;
 	border-radius: 50%;
 	position: relative;
