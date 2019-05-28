@@ -119,16 +119,11 @@
 				<div class="row">
 					<div class="col-8">
 						<div class="lec-img">
-							<img src="" />
+							<img src="./images/lecmain.jpg" />
 						</div>
-						<!-- <div id="navbar">
-							<a href="#home">Home</a> 
-							<a href="#news">News</a> 
-							<a href="#contact">Contact</a>
-						</div> -->
 
-						<!-- The scrollable area -->
-						<!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+						<div class="star mx-auto">★★★★★</div>
+
 						<nav id="navbar" class="stc navbar navbar-expand-sm navbar-dark">
 							<ul class="navbar-nav mx-auto">
 								<li><a href="#section1">서비스설명</a></li>
@@ -140,171 +135,178 @@
 						</nav>
 
 						<!-- Section 1 -->
-						<div class="size" id="section1">
-							<h1>서비스설명</h1>
-							<div class="small-font">
-								서비스 설명 경력 및 자격사항 : <br> ＊AIDA+SSI+PADI<br> instructor<br>
-								＊EFR (Emergency First Response)응급구조사<br> ＊SSI REACT
-								RIGHT(FA.CPR.AED)<br> ＊CMAS NAUI PADI scuba diver<br>
-								<br> 목표 가치 :<br> 안전 다이빙을 이해하고, 수중 적응을 통해, 초심자들이 물에 대한
-								두려움 없이 쉽고 편안하게 프리다이빙을 즐길 수 있는 능력을 갖추게 된다. <br> <br> 사전
-								자격 조건 <br> 14세 이상, 신체 정신적 건강 양호한 자 (자격증 사전 조건 없음) <br>
-								<br> 교육 내용 지식 개발 내용 <br> 장비 : 기본 장비의 명칭과 용도버디시스템생리,
-								물리학호흡법, 초과 호흡<br> 호흡 트레이닝 : 기초 호흡법/ 근육스트레칭/ 릴렉스 트레이닝<br>
-								제한 수역 2 세션 <br> 공기 공간 압력 평형 <br> 입수법: Head First dive,
-								Duck dive <br> 핀 사용 발차기수평잠영(Dynamic ) 수면무호흡 (Static)<br>
-								개방 수역 1회 다이빙 <br> 공기 공간 압력 평형(Equalization)입수법: Head First
-								dive, Duck dive <br> 핀 사용 발차기: 바이핀 킥 <br> 수직하강 (CWT) :
-								수심 10m <br> 자유하강 (FIM) : 수심 10m<br>
+						<div class="lec-content1">
+							<div class="size" id="section1">
+								<div class="big-font pb-3">서비스설명</div>
+								<div class="small-font">
+									서비스 설명 경력 및 자격사항 : <br> ＊AIDA+SSI+PADI<br> instructor<br>
+									＊EFR (Emergency First Response)응급구조사<br> ＊SSI REACT
+									RIGHT(FA.CPR.AED)<br> ＊CMAS NAUI PADI scuba diver<br>
+									<br> 목표 가치 :<br> 안전 다이빙을 이해하고, 수중 적응을 통해, 초심자들이 물에 대한
+									두려움 없이 쉽고 편안하게 프리다이빙을 즐길 수 있는 능력을 갖추게 된다. <br> <br>
+									사전 자격 조건 <br> 14세 이상, 신체 정신적 건강 양호한 자 (자격증 사전 조건 없음) <br>
+									<br> 교육 내용 지식 개발 내용 <br> 장비 : 기본 장비의 명칭과 용도버디시스템생리,
+									물리학호흡법, 초과 호흡<br> 호흡 트레이닝 : 기초 호흡법/ 근육스트레칭/ 릴렉스 트레이닝<br>
+									제한 수역 2 세션 <br> 공기 공간 압력 평형 <br> 입수법: Head First
+									dive, Duck dive <br> 핀 사용 발차기수평잠영(Dynamic ) 수면무호흡 (Static)<br>
+									개방 수역 1회 다이빙 <br> 공기 공간 압력 평형(Equalization)입수법: Head First
+									dive, Duck dive <br> 핀 사용 발차기: 바이핀 킥 <br> 수직하강 (CWT)
+									: 수심 10m <br> 자유하강 (FIM) : 수심 10m<br>
+								</div>
 							</div>
-						</div>
-						<div class="size" id="section2">
-							<h1>가격정보</h1>
-							<table></table>
-						</div>
-						<div class="size" id="section3">
-							<h1>전문가이력</h1>
-							<p>Try to scroll this page and look at the navigation bar
-								while scrolling!</p>
-						</div>
-						<div class="size" id="section4">
-							<h1>커리큘럼</h1>
-							<p>Try to scroll this page and look at the navigation bar
-								while scrolling!</p>
-						</div>
-						<div class="size" id="section5">
-							<h1>취소및환불규정</h1>
-							<p>
-								가. 레슨 환불기준 원칙<br> 학원의 설립/운영 및 과외교습에 관한 법률 제 18조(교습비 등의 반환
-								등)<br> - 학원설립, 운영자, 교습자 및 개인과외교습자는 학습자가 수강을 계속할 수 없는 경우 또는
-								학원의 등록말소, 교습소 폐지 등으로 교습을 계속할 수 없는 경우에는 학습자로부터 받은<br> 교습비를
-								반환하는 등 학습자를 보호하기 위하여 필요한 조치를 하여야 한다.<br> <br> 1. 레슨을
-								제공할 수 없거나, 레슨 장소를 제공할 수 없게 된 날 : 이미 납부한 레슨비 등을 일한 계산한 금액 환불<br>
-								<br> 2. 레슨기간이 1개월 이내의 경우<br> - 레슨 시작전 : 이미 납부한 레슨비 전액
-								환불<br> - 총 레슨 시간의 1/3 경과전 : 이미 납부한 레슨비의 2/3에 해당액 환불<br>
-								- 총 레슨 시간의 1/2 경과전 : 이미 납부한 레슨비용의 1/2에 해당액 환불<br> - 총 레슨시간의
-								1/2 경과후 : 반환하지 않음<br> <br> 3.레슨 기간이 1개월을 초과하는 경우<br>
-								- 레슨 시작전 : 이미 납부한 레슨비 전액 환불<br> - 레슨 시작후 : 반환사유가 발생한 당해 월의
-								반환 대상 레슨비(레슨비 징수기간이 1개월 이내인 경우에 따라 산출된 수강료를 말한다)와 나머지 월의 레슨비 전액을
-								합산한 금액 환불<br> <br> * 총 레슨 시간의 레슨비 징수기간 중의 총레슨시간을 말하며,
-								반환 금액의 산정은 반환 사유가 발생한 날까지 경과 된 레슨시간을 기준으로 함<br>
-							</p>
-						</div>
+							<div class="size" id="section2">
+								<div class="big-font pb-3">가격정보</div>
+								<table></table>
+							</div>
+							<div class="size" id="section3">
+								<div class="big-font pb-3">전문가이력</div>
+								<div>Try to scroll this page and look at the navigation
+									bar while scrolling!</div>
+							</div>
+							<div class="size" id="section4">
+								<div class="big-font pb-3">커리큘럼</div>
+								<div>Try to scroll this page and look at the navigation
+									bar while scrolling!</div>
+							</div>
+							<div class="size" id="section5">
+								<div class="big-font pb-3">취소및환불규정</div>
+								<div>
+									가. 레슨 환불기준 원칙<br> 학원의 설립/운영 및 과외교습에 관한 법률 제 18조(교습비 등의 반환
+									등)<br> - 학원설립, 운영자, 교습자 및 개인과외교습자는 학습자가 수강을 계속할 수 없는 경우 또는
+									학원의 등록말소, 교습소 폐지 등으로 교습을 계속할 수 없는 경우에는 학습자로부터 받은<br> 교습비를
+									반환하는 등 학습자를 보호하기 위하여 필요한 조치를 하여야 한다.<br> <br> 1. 레슨을
+									제공할 수 없거나, 레슨 장소를 제공할 수 없게 된 날 : 이미 납부한 레슨비 등을 일한 계산한 금액 환불<br>
+									<br> 2. 레슨기간이 1개월 이내의 경우<br> - 레슨 시작전 : 이미 납부한 레슨비 전액
+									환불<br> - 총 레슨 시간의 1/3 경과전 : 이미 납부한 레슨비의 2/3에 해당액 환불<br>
+									- 총 레슨 시간의 1/2 경과전 : 이미 납부한 레슨비용의 1/2에 해당액 환불<br> - 총
+									레슨시간의 1/2 경과후 : 반환하지 않음<br> <br> 3.레슨 기간이 1개월을 초과하는
+									경우<br> - 레슨 시작전 : 이미 납부한 레슨비 전액 환불<br> - 레슨 시작후 :
+									반환사유가 발생한 당해 월의 반환 대상 레슨비(레슨비 징수기간이 1개월 이내인 경우에 따라 산출된 수강료를
+									말한다)와 나머지 월의 레슨비 전액을 합산한 금액 환불<br> <br> * 총 레슨 시간의
+									레슨비 징수기간 중의 총레슨시간을 말하며, 반환 금액의 산정은 반환 사유가 발생한 날까지 경과 된 레슨시간을
+									기준으로 함<br>
+								</div>
+							</div>
 
-						<div id="section6" class="comment">댓글들어갈부분</div>
+							<div id="section6" class="comment">댓글들어갈부분</div>
+						</div>
 					</div>
-
 					<div class="col-4 tp">
 						<!-- 강의 개요 , 구매버튼 , 찜-->
 						<div class="container">
-							<div class="likelist">
-								<div class="float-right">찜</div>
-								<div class="star mx-auto">★★★★★</div>
-							</div>
-							<div class="lec-about">
 
-								<div class=" subject mx-auto align-middle">
-									<h3>프리다이빙 (서울.수원.성남.인천 ) 도와 드립니다.</h3>
-								</div>
-								<hr>
-								<div class="lec-simple">
+							<div class="lec-content2">
 
-									<div class="position-relative">
-										<div class="col-6 float-left">▶준비물 제공(대여)포함</div>
+								<div class="lec-about">
+									<div class="likelist">
+										<div class="">
+										<div class="float-right d-inline-block"></div>
+											<div class="test test_button d-inline-block">
+												<a href="#" class="button button_light"> <span
+													class="heart">&hearts;</span> <span class="text_like">Like x12</span>
+													<span class="text_liked">Liked x13</span>
+												</a>
+											</div>
+											
+										</div>
+										
 									</div>
-									<div class="position-relative">
-										<div class="col-6 float-left">▶1회당 레슨시간 (분) : 480 분</div>
+									<div class="cb middle-font mx-auto align-middle">
+										프리다이빙 (서울.수원.성남.인천 ) 도와 드립니다.
 									</div>
-									<div class="position-relative">
-										<div class="col-6 float-left">▶레슨 횟수 : 1 회</div>
+									<hr>
+									<div class="lec-simple">
+
+										<div class="position-relative">
+											<div class="col-6 float-left">▶준비물 제공(대여)포함</div>
+										</div>
+										<div class="position-relative">
+											<div class="col-6 float-left">▶1회당 레슨시간 (분) : 480 분</div>
+										</div>
+										<div class="position-relative">
+											<div class="col-6 float-left">▶레슨 횟수 : 1 회</div>
+										</div>
+
+										<div class="cb"></div>
+									</div>
+									<hr>
+
+
+
+
+									<a href="#" class="btn btn-block btn-primary btn-default"
+										style="background-color: #2e21df">구매하기(160,000원)</a>
+
+								</div>
+								<!-- 장소 -->
+								<div class="lec-add">
+									<div class="big-font">강의 장소</div>
+									<div class="padd">
+										<ul>
+											<li>경기도 성남시</li>
+											<li>경기도 성남시</li>
+											<li>경기도 성남시</li>
+										</ul>
+									</div>
+								</div>
+								<!-- 날짜 -->
+								<div class="lec-date">
+
+									<button class="tablink" onclick="openPage('Home', this)"
+										id="defaultOpen">월</button>
+									<button class="tablink" onclick="openPage('News', this)">화</button>
+									<button class="tablink" onclick="openPage('Contact', this)">수</button>
+									<button class="tablink" onclick="openPage('About', this)">목</button>
+									<button class="tablink" onclick="openPage('About', this)">금</button>
+									<button class="tablink" onclick="openPage('About', this)">토</button>
+									<button class="tablink" onclick="openPage('About', this)">일</button>
+
+
+									<div id="Home" class="tabcontent">
+										<h3>Home</h3>
+										<p>Home is where the heart is..</p>
 									</div>
 
-									<div class="cb"></div>
+									<div id="News" class="tabcontent">
+										<h3>News</h3>
+										<p>Some news this fine day!</p>
+									</div>
+
+									<div id="Contact" class="tabcontent">
+										<h3>Contact</h3>
+										<p>Get in touch, or swing by for a cup of coffee.</p>
+									</div>
+
+									<div id="About" class="tabcontent">
+										<h3>About</h3>
+										<p>Who we are and what we do.</p>
+									</div>
 								</div>
-								<hr>
-								
-									
-								
-					
-								<a href="#" class="btn btn-block btn-primary btn-default"
-									style="background-color: #2e21df">구매하기(160,000원)</a>
-
-							</div>
-							<!-- 장소 -->
-							<div class="lec-add">
-								<div class="big-font">강의 장소</div>
-								<div class="padd">
-									<ul>
-										<li>경기도 성남시</li>
-										<li>경기도 성남시</li>
-										<li>경기도 성남시</li>
-									</ul>
-								</div>
-							</div>
-							<!-- 날짜 -->
-							<div class="lec-date">
-
-								<button class="tablink" onclick="openPage('Home', this)"
-									id="defaultOpen">월</button>
-								<button class="tablink" onclick="openPage('News', this)">화</button>
-								<button class="tablink" onclick="openPage('Contact', this)">수</button>
-								<button class="tablink" onclick="openPage('About', this)">목</button>
-								<button class="tablink" onclick="openPage('About', this)">금</button>
-								<button class="tablink" onclick="openPage('About', this)">토</button>
-								<button class="tablink" onclick="openPage('About', this)">일</button>
-
-
-								<div id="Home" class="tabcontent">
-									<h3>Home</h3>
-									<p>Home is where the heart is..</p>
-								</div>
-
-								<div id="News" class="tabcontent">
-									<h3>News</h3>
-									<p>Some news this fine day!</p>
-								</div>
-
-								<div id="Contact" class="tabcontent">
-									<h3>Contact</h3>
-									<p>Get in touch, or swing by for a cup of coffee.</p>
-								</div>
-
-								<div id="About" class="tabcontent">
-									<h3>About</h3>
-									<p>Who we are and what we do.</p>
-								</div>
-							</div>
-							<!-- 선생프로필 -->
-							<div class="teacher-profile container">
-								<div class="d-flex justify-content-center pb-3">
-									<div class="image_outer_container">
-										<div class="image_inner_container">
-											<img src="./images/member/Guest.png">
+								<!-- 선생프로필 -->
+								<div class="teacher-profile container">
+									<div class="d-flex justify-content-center pb-3">
+										<div class="image_outer_container">
+											<div class="image_inner_container">
+												<img src="./images/member/Guest.png">
+											</div>
 										</div>
 									</div>
-								</div>
-								
-								<!-- 여기까지사진 -->
-								<div class="big-font text-center  pb-3">
-									강사 이름
-								</div>
-					
-								<div>
-								<a href="#" class="btn btn-block btn-primary btn-default"
-									style="background-color: #2e21df">전문가에게 문의하기</a>
-								</div>
-								<div class="small-font">※너무 늦은 밤에는 연락이 되지 않을 수 있습니다.</div>
-								<hr>
-							
-								<div class="text-center">
-									강의횟수
-									만족도
-									
-								</div>
-								<hr>
-								<div>
-									강사 소개<br>
-									안녕하세요 1타강사 이세현입니다.<br> 1타강사는 무슨 ui 뒤져랏!
+
+									<!-- 여기까지사진 -->
+									<div class="big-font text-center  pb-3">강사 이름</div>
+
+									<div>
+										<a href="#" class="btn btn-block btn-primary btn-default"
+											style="background-color: #2e21df">전문가에게 문의하기</a>
+									</div>
+									<div class="small-font">※너무 늦은 밤에는 연락이 되지 않을 수 있습니다.</div>
+									<hr>
+
+									<div class="text-center">강의횟수 만족도</div>
+									<hr>
+									<div>
+										강사 소개<br> 안녕하세요 1타강사 이세현입니다.<br> 1타강사는 무슨 ui 뒤져랏!
+									</div>
 								</div>
 							</div>
 						</div>
@@ -312,7 +314,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- Footer -->
 
 		<footer class="footer">
@@ -462,6 +463,15 @@
 
 			// Get the element with id="defaultOpen" and click on it
 			document.getElementById("defaultOpen").click();
+
+			$(function() {
+				var NS = '.test';
+
+				$(document).on('click', NS + ' .button', function(e) {
+					e.preventDefault();
+					$(this).closest('.button').toggleClass('selected');
+				});
+			});
 		</script>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="styles/bootstrap4/popper.js"></script>

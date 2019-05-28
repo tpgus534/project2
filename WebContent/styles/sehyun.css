@@ -1,7 +1,113 @@
 @charset "UTF-8";
 /*날짜 버튼시작*/
 /* Style tab links */
+.test {
+  margin: 20px 20px 20px 20px;
+}
 
+.test_button {
+  float: right;
+
+}
+
+.test_text {
+  float: right;
+}
+
+.button,
+.button_text {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+  text-decoration: none;
+  padding: 6px 10px 6px 19px;
+  border-radius: 3px;
+  position: relative;
+  margin: 10px;
+}
+
+.heart {
+  font-size: 16px;
+  position: absolute;
+  top: 7px;
+  left: 5px;
+}
+
+.text_like {
+  display: inline;
+}
+
+.text_liked {
+  display: none;
+}
+
+.button_text_light, .button_light {
+  color: #757a6f;
+}
+.button_text_light .heart, .button_light .heart {
+  color: #757a6f;
+}
+.button_text_light:hover:not(.selected) .heart, .button_light:hover:not(.selected) .heart {
+  color: #ee6356;
+  font-size: 19px;
+  top: 6px;
+  left: 4px;
+}
+.button_text_light.shine .heart, .shine.button_light .heart {
+  background: #ee6356;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.button_text_light.shine:hover:not(.selected) .heart, .shine.button_light:hover:not(.selected) .heart {
+  background: linear-gradient(45deg, #ee6356 20%, #fce3e1 25%, #ee6356 30%);
+  background-position: left top;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-size: 100px 1px;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+.button.selected {
+  color: #ee6356;
+  background-color: #fff;
+  border: 1px solid #ee6356;
+}
+.button.selected .heart {
+  color: #ee6356;
+  background-color: #ee6356;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.button.selected .text_like {
+  display: none;
+}
+.button.selected .text_liked {
+  display: inline;
+}
+
+.button.button_text.selected {
+  color: #2e21df;
+  background: transparent;
+  border: none;
+}
+.button.button_text.selected .heart {
+  color: #2e21df;
+  background-color: #2e21df;
+}
+.lec-content1>div{
+	padding : 20px 20px 50px 20px;
+	margin-bottom: 20px;
+}
+.lec-content2>div{
+	padding : 20px 20px 50px 20px;
+	margin-bottom: 20px;
+	border: 1px solid;
+	
+}
 .padd{
 	padding:20px 20px;
 	
@@ -19,6 +125,7 @@
 
 .tablink:hover {
 	background-color: #777;
+	
 }
 
 /* Style the tab content (and add height:100% for full page content) */
@@ -32,7 +139,7 @@
 /*날짜버튼 끝*/
 .small-font {
 	font-family: 'Poppins', sans-serif;
-	font-size: 14px;
+	font-size: 0.8rem;
 	line-height: 1.71;
 	font-weight: 400;
 	color: rgba(0, 0, 0, 0.5);
@@ -43,7 +150,7 @@
 
 .middle-font {
 	font-family: 'Poppins', sans-serif;
-	font-size: 20px;
+	font-size: 1.3rem;
 	line-height: 1.71;
 	font-weight: 400;
 	color: rgba(0, 0, 0, 0.5);
@@ -54,7 +161,7 @@
 
 .big-font {
 	font-family: 'Poppins', sans-serif;
-	font-size: 24px;
+	font-size: 2rem;
 	line-height: 1.71;
 	font-weight: 400;
 	color: rgba(0, 0, 0, 0.5);
@@ -63,9 +170,11 @@
 	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 	font-weight: bold;
 }
-
 .star {
-	width: 100px;
+	margin-top:3rem;
+	margin-bottom:3rem;
+	text-align: center;
+	
 }
 
 .cb {
@@ -74,19 +183,11 @@
 
 .lec-simple>div>div {
 	display: inline-block;
+	
 }
 
 .lec-simple {
 	padding: 20px 0px 20px 0px;
-}
-
-.likelist {
-	height: 2rem;
-	border: 1px solid;
-}
-
-.subject {
-	
 }
 
 .lec-date {
@@ -100,7 +201,8 @@
 }
 
 .lec-about {
-	padding: 30px 30px 30px 30px;
+	padding: 10px;
+	!important;
 	border: 1px solid;
 }
 
@@ -115,6 +217,7 @@
 }
 
 .image_outer_container {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	margin-top: 30px;
 	margin-bottom: auto;
 	border-radius: 50%;
@@ -148,17 +251,11 @@
 	z-index: 100;
 }
 
-.lec {
-	border: 1px solid;
-}
-
 .lec-img {
-	border: 1px solid;
-	position: relative;
-	width: 100%;
-	height: 0;
-	overflow: hidden;
-	padding-bottom: 56.26%;
+	
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 nav>ul>li>a {
@@ -183,6 +280,7 @@ nav>ul>li {
 	padding-top:1vh;
 	text-align: center;
 	border: 1px solid;
+	
 }
 nav>ul{
 	display: table;
@@ -197,16 +295,17 @@ nav {
 
 .size {
 	width: 100%;
-	border: 1px solid;
 }
 /* Style the navbar */
 #navbar {
 	overflow: hidden;
+	
 }
 /* Navbar links */
 #navbar a {
 	text-align: center;
 	text-decoration: none;
+	
 }
 /* Page content */
 .content {
@@ -214,6 +313,7 @@ nav {
 }
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
+	
 	position: fixed;
 	padding-left: 30px;
 	padding-right: 30px;
