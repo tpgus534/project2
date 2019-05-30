@@ -63,9 +63,10 @@
 					<div class="row">
 						<div class="col text-center">
 							<h1 class="home_title">주변의 선생님을 찾아보세요!</h1>
-							<div class="w-50 mx-auto shadow-lg">
+							<div class="">
+							<div class="w-50 shadow-lg mx-auto">
 								<div class="input-group margin-top">
-									<input type="text" class="form-control"
+									<input id="ipadd" type="text" class="form-control"
 										placeholder="집근처 장소를 검색해봐">
 									<div class="input-group-append">
 										<button class="btn btn-primary" type="submit">Go</button>
@@ -73,6 +74,10 @@
 								</div>
 							</div>
 						</div>
+								<div id="addressresult" class="searchresult mx-auto">
+								
+								</div>
+								</div>
 					</div>
 				</div>
 			</div>
@@ -693,6 +698,43 @@ $( document ).ready( function() {
 	} );
 } );
 	
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+});
+var searchadd = $("#ipadd");
+$(searchadd).keyup(function() {
+	var sid = $(searchadd).val();
+	console.log(sid);
+	if (sid.length!=0) {
+		$.ajax({
+		    url: 'https://dapi.kakao.com/v2/local/search/address.json?query='+sid,
+		    headers: { 'Authorization': 'KakaoAK a6462a6cb3e275f85632af19d7ec24cb'},
+		    type: 'GET'
+		}).done(function(data) {
+			
+			var list = data.documents;
+			if (list.length!=0) {
+				var html = list[0].address_name+"<br>";;
+				for (var i = 1; i < list.length; i++) {
+					html += list[i].address_name+"<br>";
+					
+				}
+				$("#addressresult").html(html);
+			} 
+			
+			
+			
+		});
+	}else {
+		$("#addressresult").html("");
+	}
+	
+	
+});
+ 
 </script>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="styles/bootstrap4/popper.js"></script>
