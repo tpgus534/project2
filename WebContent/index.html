@@ -69,7 +69,7 @@
 									<input id="ipadd" type="text" class="form-control"
 										placeholder="집근처 장소를 검색해봐">
 									<div class="input-group-append">
-										<button class="btn btn-primary" type="submit">Go</button>
+										<button id="go" class="btn btn-primary" type="submit">Go</button>
 									</div>
 								</div>
 							</div>
@@ -616,13 +616,22 @@
 						resultDiv.innerHTML = message;
 					});
 					
+					var circle;
+					circle = new daum.maps.Circle({
+					    center : new daum.maps.LatLng(37.54699, 127.09598),  // 원의 중심좌표 입니다 
+					    radius: $( 'input[name=range]' ).val()*1000, // 미터 단위의 원의 반지름입니다 
+					    strokeWeight: 5, // 선의 두께입니다 
+					    strokeColor: '#75B8FA', // 선의 색깔입니다
+					    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+					    strokeStyle: 'dashed', // 선의 스타일 입니다
+					    fillColor: '#CFE7FF', // 채우기 색깔입니다
+					    fillOpacity: 0.7  // 채우기 불투명도 입니다   
+					}); 
+					
 					var geocoder = new daum.maps.services.Geocoder();
 					searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-					var circle=null;
 					daum.maps.event.addListener(map, 'click', function(mouseEvent) {
-						if(circle!=null){
-						circle.setMap(null);
-						}
+						
 					    searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
 					        if (status === daum.maps.services.Status.OK) {
 					            var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
@@ -630,27 +639,8 @@
 					            
 					            var content = '<div class="bAddr">' +
 					                            '<span class="title">법정동 주소정보</span>' + 
-					                            detailAddr + 
-					                        '</div>';
-					                        var jd=$( 'input[name=range]' ).val();
-					    					console.log(jd);
-					    						circle = new daum.maps.Circle({
-					    					    center : new daum.maps.LatLng(mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng()),  // 원의 중심좌표 입니다 
-					    					    radius: $( 'input[name=range]' ).val()*1000, // 미터 단위의 원의 반지름입니다 
-					    					    strokeWeight: 5, // 선의 두께입니다 
-					    					    strokeColor: '#75B8FA', // 선의 색깔입니다
-					    					    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-					    					    strokeStyle: 'dashed', // 선의 스타일 입니다
-					    					    fillColor: '#CFE7FF', // 채우기 색깔입니다
-					    					    fillOpacity: 0.7  // 채우기 불투명도 입니다   
-					    					}); 
-
-					    					// 지도에 원을 표시합니다 
-					    					circle.setMap(map); 
-					            // 마커를 클릭한 위치에 표시합니다 
-					            marker.setPosition(mouseEvent.latLng);
-					            marker.setMap(map);
-
+					                            detailAddr + '</div>';
+					                            markerSet(mouseEvent.latLng.getLat(),mouseEvent.latLng.getLng());
 					            // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
 					            infowindow.setContent(content);
 					            infowindow.open(map, marker);
@@ -700,12 +690,10 @@ $( document ).ready( function() {
 	
 </script>
 <script type="text/javascript">
-$(document).ready(function(){
-	
-	
-});
+
+
 var searchadd = $("#ipadd");
-$(searchadd).keyup(function() {
+$(searchadd).keyup(function() { 
 	var sid = $(searchadd).val();
 	console.log(sid);
 	if (sid.length!=0) {
@@ -713,15 +701,18 @@ $(searchadd).keyup(function() {
 		    url: 'https://dapi.kakao.com/v2/local/search/address.json?query='+sid,
 		    headers: { 'Authorization': 'KakaoAK a6462a6cb3e275f85632af19d7ec24cb'},
 		    type: 'GET'
-		}).done(function(data) {
+		}).done(function(result) {
 			
-			var list = data.documents;
+			var list = result.documents;
 			if (list.length!=0) {
-				var html = list[0].address_name+"<br>";;
+				
+				var html = "<span><a href='#' id='a0' data-y='"+list[0].y+"' data-x='"+list[0].x+"'>"+list[0].address_name+"</a></span><br>";
+				console.log($("#addressresult>span>a[id=a0]"));
 				for (var i = 1; i < list.length; i++) {
-					html += list[i].address_name+"<br>";
+					html += "<span><a href='#' id='a"+i+"' data-y='"+list[i].y+"' data-x='"+list[i].x+"'>"+list[i].address_name+"</a></span><br>";
 					
 				}
+				
 				$("#addressresult").html(html);
 			} 
 			
@@ -734,7 +725,34 @@ $(searchadd).keyup(function() {
 	
 	
 });
- 
+$(document).ready(function(){
+
+	$(document).on('click', '#addressresult > span > a', function(e){
+		e.preventDefault();
+		console.log($(this).html())
+		$("#ipadd").val($(this).html());
+		$("#ipadd").data("x",$(this).data("x"))
+		$("#ipadd").data("y",$(this).data("y"))
+	});	
+	
+	$("#go").click(function() {
+		markerSet($("#ipadd").data("y"),$("#ipadd").data("x"));
+	});
+
+});
+function markerSet(lat, lng){
+	if(marker!=null){
+		marker.setMap(null);
+		}
+	if(circle!=null){
+		circle.setMap(null);
+		}
+	map.setCenter(new daum.maps.LatLng(lat, lng));
+	marker.setPosition(new daum.maps.LatLng(lat, lng));
+	circle.setPosition(new daum.maps.LatLng(lat, lng));
+	marker.setMap(map);
+	circle.setMap(map);
+}
 </script>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="styles/bootstrap4/popper.js"></script>
