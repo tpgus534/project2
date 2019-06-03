@@ -46,8 +46,8 @@ public class LessonMarkerSearch extends HttpServlet {
 				String zipcode = rs.getString(3);
 				String address = rs.getString(4);
 				String addressdetail = rs.getString(5);
-				float les_x = rs.getFloat(6);
-				float les_y = rs.getFloat(7);
+				String les_x = String.valueOf(rs.getFloat(6));
+				String les_y = String.valueOf(rs.getFloat(7));
 				
 				JSONObject result = new JSONObject();
 				result.put("tea_id", tea_id);

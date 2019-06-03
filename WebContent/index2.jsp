@@ -427,26 +427,45 @@
 
 </div>
 <script type="text/javascript">
+$(document).ready(function() {
+	$('input[name=range]').change(function() {
+		var jb = $('input[name=range]').val();
+		$("label[id=range]").html(jb);
+		circle.setRadius(jb * 1000);
+	});
+	$.ajax({
+		url : 'front',
+		type : 'GET',
+		data : 'sid=lessonmaker',
+		dataType : "JSON",
+		success : function(result) {
+			for (var i = 0; i < result.length; i++) {
+				console.log(result[i]);
+				console.log(result[i].les_y);
+				console.log(result[i].les_x);
+
+				addMarker(result[i].les_y, result[i].les_x)
+			}
+			
+		}
+	});
+});
 	var markers = [];
 	var container = document.getElementById('map');
 	var options = {
 		center : new daum.maps.LatLng(33.450701, 126.570667),
 		level : 8
 	};
-
 	var map = new daum.maps.Map(container, options);
-
-	 var imageSrc = './images/member_marker.png', // 마커이미지의 주소입니다    
+	var imageSrc = './images/member_marker.png', // 마커이미지의 주소입니다    
 	imageSize = new daum.maps.Size(64, 69), // 마커이미지의 크기입니다
 	imageOption = {
 		offset : new daum.maps.Point(30, 55)
 	}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
 	// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 	var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize,
 			imageOption), markerPosition = new daum.maps.LatLng(37.54699,
 			127.09598); // 마커가 표시될 위치입니다
-
 	// 마커를 생성합니다
 	var marker = new daum.maps.Marker({
 		position : markerPosition,
@@ -455,8 +474,16 @@
 	}), infowindow = new daum.maps.InfoWindow({
 		zindex : 100
 	});
-
-	var circle = new daum.maps.Circle({
+	daum.maps.event.addListener(map, 'click', function(mouseEvent) {
+		var latlng = mouseEvent.latLng;
+		marker.setPosition(latlng);
+		var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+		message += '경도는 ' + latlng.getLng() + ' 입니다';
+		var resultDiv = document.getElementById('clickLatlng');
+		resultDiv.innerHTML = message;
+	});
+	var circle;
+	circle = new daum.maps.Circle({
 		center : new daum.maps.LatLng(37.54699, 127.09598), // 원의 중심좌표 입니다 
 		radius : $('input[name=range]').val() * 1000, // 미터 단위의 원의 반지름입니다 
 		strokeWeight : 5, // 선의 두께입니다 
@@ -467,74 +494,25 @@
 		fillOpacity : 0.7
 	// 채우기 불투명도 입니다   
 	});
-	var imageSrc2 = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-	
-
-	// 마커를 생성하고 지도위에 표시하는 함수입니다
-	function addMarker(position) {
-	    
-	    // 마커를 생성합니다
-	    var marker2 = new daum.maps.Marker({
-	        position: position
-	    });
-
-	    // 마커가 지도 위에 표시되도록 설정합니다
-	    marker2.setMap(map);
-	    
-	    // 생성된 마커를 배열에 추가합니다
-	    markers.push(marker2);
+	function addMarker(x, y) {
+		var marker2Position = new daum.maps.LatLng(x,y);
+		// 마커를 생성합니다
+		var marker2 = new daum.maps.Marker({position:marker2Position});
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker2.setMap(map);
+		// 생성된 마커를 배열에 추가합니다
+		markers.push(marker2);
 	}
 	
-	$(document).ready(function() {
-
-		$('input[name=range]').change(function() {
-			var jb = $('input[name=range]').val();
-			$("label[id=range]").html(jb);
-			circle.setRadius(jb * 1000);
-		});
-		$.ajax({
-			url : 'front',
-			type : 'GET',
-			data : 'sid=lessonmaker',
-			dataType : "JSON",
-			success : function(result) {
-					for (var i = 0; i < result.length; i++) {
-						var x = result[i].les_y;
-						var y = result[i].les_x;
-					console.log(x);
-					console.log(y);
-					addMarker(new daum.maps.LatLng(parseInt(x),parseInt(y)));
-					}
-					
-				
-				marker.setMap(map);
-				
-			}	
-		});
-	});
-	
-	daum.maps.event.addListener(map, 'click', function(mouseEvent) {
-		var latlng = mouseEvent.latLng;
-		marker.setPosition(latlng);
-		console.log(latlng.getLat() + "," + latlng.getLng());
-		var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-		message += '경도는 ' + latlng.getLng() + ' 입니다';
-
-		var resultDiv = document.getElementById('clickLatlng');
-		resultDiv.innerHTML = message;
-	});
-
 	var geocoder = new daum.maps.services.Geocoder();
 	searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 	daum.maps.event.addListener(map, 'click', function(mouseEvent) {
-
 		searchDetailAddrFromCoords(mouseEvent.latLng, function(result, status) {
 			if (status === daum.maps.services.Status.OK) {
 				var detailAddr = !!result[0].road_address ? '<div>도로명주소 : '
 						+ result[0].road_address.address_name + '</div>' : '';
 				detailAddr += '<div>지번 주소 : ' + result[0].address.address_name
 						+ '</div>';
-
 				var content = '<div class="bAddr">'
 						+ '<span class="title">법정동 주소정보</span>' + detailAddr
 						+ '</div>';
@@ -546,26 +524,21 @@
 			}
 		});
 	});
-
 	daum.maps.event.addListener(map, 'idle', function() {
 		searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 	});
-
 	function searchAddrFromCoords(coords, callback) {
 		// 좌표로 행정동 주소 정보를 요청합니다
 		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
 	}
-
 	function searchDetailAddrFromCoords(coords, callback) {
 		// 좌표로 법정동 상세 주소 정보를 요청합니다
 		geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
 	}
-
 	// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
 	function displayCenterInfo(result, status) {
 		if (status === daum.maps.services.Status.OK) {
 			var infoDiv = document.getElementById('centerAddr');
-
 			for (var i = 0; i < result.length; i++) {
 				// 행정동의 region_type 값은 'H' 이므로
 				if (result[i].region_type === 'H') {
@@ -575,70 +548,82 @@
 			}
 		}
 	}
+</script>
 
+
+<script type="text/javascript">
 	var searchadd = $("#ipadd");
-	$(searchadd).keyup(function() {
-		var sid = $(searchadd).val();
-		console.log(sid);
-		if (sid.length != 0) {
-			$.ajax({
-				url : 'https://dapi.kakao.com/v2/local/search/address.json?query='+ sid,
-				headers : {'Authorization' : 'KakaoAK a6462a6cb3e275f85632af19d7ec24cb'},
-				type : 'GET'}).done(function(result) {
-									console.log(result);
-									var list = result.documents;
-									if (list.length != 0) {
-										var html = "<span><a href='#' id='a0' data-y='"+list[0].y+"' data-x='"+list[0].x+"'>"
+	$(searchadd)
+			.keyup(
+					function() {
+						var sid = $(searchadd).val();
+						console.log(sid);
+						if (sid.length != 0) {
+							$
+									.ajax(
+											{
+												url : 'https://dapi.kakao.com/v2/local/search/address.json?query='
+														+ sid,
+												headers : {
+													'Authorization' : 'KakaoAK a6462a6cb3e275f85632af19d7ec24cb'
+												},
+												type : 'GET'
+											})
+									.done(
+											function(result) {
+												console.log(result);
+												var list = result.documents;
+												if (list.length != 0) {
+													var html = "<span><a href='#' id='a0' data-y='"+list[0].y+"' data-x='"+list[0].x+"'>"
 															+ list[0].address_name
 															+ "</a></span><br>";
-										console.log($("#addressresult>span>a[id=a0]"));
-										for (var i = 1; i < list.length; i++) {
-											html += "<span><a href='#' id='a"+i+"' data-y='"+list[i].y+"' data-x='"+list[i].x+"'>"
+													console
+															.log($("#addressresult>span>a[id=a0]"));
+													for (var i = 1; i < list.length; i++) {
+														html += "<span><a href='#' id='a"+i+"' data-y='"+list[i].y+"' data-x='"+list[i].x+"'>"
 																+ list[i].address_name
 																+ "</a></span><br>";
-
-										}
-
-										$("#addressresult").html(html);
-									}
-
-							});
+													}
+													$("#addressresult").html(
+															html);
+												}
+											});
 						} else {
 							$("#addressresult").html("111");
 						}
-
 					});
-	$(document).ready(function() {
-		$(document).on('click', '#addressresult > span > a', function(e) {
-			e.preventDefault();
-			console.log($(this).html())
-			$("#ipadd").val($(this).html());
-			$("#ipadd").data("x", $(this).data("x"))
-			$("#ipadd").data("y", $(this).data("y"))
-			});
-
-			$("#go").click(function() {
-				markerSet($("#ipadd").data("y"), $("#ipadd").data("x"));
-				//	map.setCenter(new daum.maps.LatLng($("#ipadd").data("y"), $("#ipadd").data("x")));
-				var moveLatLng = new daum.maps.LatLng($("#ipadd").data("y"), $("#ipadd").data("x"));
-				map.setLevel(6);
-				map.panTo(moveLatLng);
-				});
-
+	$(document).ready(
+			function() {
+				$(document).on('click', '#addressresult > span > a',
+						function(e) {
+							e.preventDefault();
+							console.log($(this).html())
+							$("#ipadd").val($(this).html());
+							$("#ipadd").data("x", $(this).data("x"))
+							$("#ipadd").data("y", $(this).data("y"))
+						});
+				$("#go").click(
+						function() {
+							markerSet($("#ipadd").data("y"), $("#ipadd").data(
+									"x"));
+							//	map.setCenter(new daum.maps.LatLng($("#ipadd").data("y"), $("#ipadd").data("x")));
+							var moveLatLng = new daum.maps.LatLng($("#ipadd")
+									.data("y"), $("#ipadd").data("x"));
+							map.setLevel(6);
+							map.panTo(moveLatLng);
+						});
 			});
 	function markerSet(lat, lng) {
-		/* if (marker != null) {
+		if (marker != null) {
 			marker.setMap(null);
 		}
 		if (circle != null) {
 			circle.setMap(null);
-		} */
-
+		}
 		marker.setPosition(new daum.maps.LatLng(lat, lng));
 		circle.setPosition(new daum.maps.LatLng(lat, lng));
 		marker.setMap(map);
 		circle.setMap(map);
 	}
 </script>
-
 <%@ include file="footer.jsp"%>
