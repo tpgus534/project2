@@ -499,16 +499,10 @@
 			dataType : "JSON",
 			success : function(result) {
 					for (var i = 0; i < result.length; i++) {
-						var x = result[i].les_y;
-						var y = result[i].les_x;
-					console.log(x);
-					console.log(y);
-					addMarker(new daum.maps.LatLng(parseInt(x),parseInt(y)));
-					}
-					
-				
-				marker.setMap(map);
-				
+						var lat = result[i].les_x;
+						var lug = result[i].les_y;
+					addMarker(new daum.maps.LatLng(lat,lug));
+					}			
 			}	
 		});
 	});
@@ -538,11 +532,12 @@
 				var content = '<div class="bAddr">'
 						+ '<span class="title">법정동 주소정보</span>' + detailAddr
 						+ '</div>';
-				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng
-						.getLng());
+				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng());
+				
 				// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
 				infowindow.setContent(content);
 				infowindow.open(map, marker);
+				selectDistanceLesson(marker);
 			}
 		});
 	});
@@ -638,6 +633,25 @@
 		circle.setPosition(new daum.maps.LatLng(lat, lng));
 		marker.setMap(map);
 		circle.setMap(map);
+	}
+	
+	function selectDistanceLesson(marker){
+		var m1 = marker.getPosition();
+		for (var i = 0; i < markers.length; i++) {
+			var m2 = markers[i].getPosition();
+			var linePath = new daum.maps.Polyline({
+				map:map,
+				path:[m1, m2]
+				});
+			console.log(linePath.getLength());
+			console.log($('input[name=range]').val()*1000);
+			if (linePath.getLength() < $('input[name=range]').val()*1000) {
+				markers[i].setVisible(false);
+			}
+			linePath.setMap(null);
+		}
+		
+		
 	}
 </script>
 
