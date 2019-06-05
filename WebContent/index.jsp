@@ -428,9 +428,10 @@
 </div>
 <script type="text/javascript">
 	var markers = [];
+	var selectMarkers=[];
 	var container = document.getElementById('map');
 	var options = {
-		center : new daum.maps.LatLng(33.450701, 126.570667),
+		center : new daum.maps.LatLng(37.5028273473234, 126.9871525346085),
 		level : 8
 	};
 
@@ -526,11 +527,11 @@
 			if (status === daum.maps.services.Status.OK) {
 				var detailAddr = !!result[0].road_address ? '<div>도로명주소 : '
 						+ result[0].road_address.address_name + '</div>' : '';
-				detailAddr += '<div>지번 주소 : ' + result[0].address.address_name
+				detailAddr += '<div>' + result[0].address.address_name
 						+ '</div>';
 
 				var content = '<div class="bAddr">'
-						+ '<span class="title">법정동 주소정보</span>' + detailAddr
+						+ detailAddr
 						+ '</div>';
 				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng());
 				
@@ -636,6 +637,7 @@
 	}
 	
 	function selectDistanceLesson(marker){
+		selectMarkers=[];
 		var m1 = marker.getPosition();
 		for (var i = 0; i < markers.length; i++) {
 			var m2 = markers[i].getPosition();
@@ -646,12 +648,13 @@
 			console.log(linePath.getLength());
 			console.log($('input[name=range]').val()*1000);
 			if (linePath.getLength() < $('input[name=range]').val()*1000) {
-				markers[i].setVisible(false);
+				selectMarkers.push(markers[i]);
 			}
 			linePath.setMap(null);
+			for (var j = 0; j < selectMarkers.length; j++) {
+				console.log(selectMarkers[j].getTitle());
+			}
 		}
-		
-		
 	}
 </script>
 
