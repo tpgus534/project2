@@ -503,7 +503,7 @@
 						var y = result[i].les_x;
 					console.log(x);
 					console.log(y);
-					addMarker(new daum.maps.LatLng(parseInt(x),parseInt(y)));
+					addMarker(new daum.maps.LatLng(x,y));
 					}
 					
 				
