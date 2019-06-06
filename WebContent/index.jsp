@@ -428,9 +428,10 @@
 </div>
 <script type="text/javascript">
 	var markers = [];
+	var selectMarkers=[];
 	var container = document.getElementById('map');
 	var options = {
-		center : new daum.maps.LatLng(33.450701, 126.570667),
+		center : new daum.maps.LatLng(37.5028273473234, 126.9871525346085),
 		level : 8
 	};
 
@@ -499,16 +500,10 @@
 			dataType : "JSON",
 			success : function(result) {
 					for (var i = 0; i < result.length; i++) {
-						var x = result[i].les_y;
-						var y = result[i].les_x;
-					console.log(x);
-					console.log(y);
-					addMarker(new daum.maps.LatLng(x,y));
-					}
-					
-				
-				marker.setMap(map);
-				
+						var lat = result[i].les_x;
+						var lug = result[i].les_y;
+					addMarker(new daum.maps.LatLng(lat,lug));
+					}			
 			}	
 		});
 	});
@@ -532,17 +527,18 @@
 			if (status === daum.maps.services.Status.OK) {
 				var detailAddr = !!result[0].road_address ? '<div>도로명주소 : '
 						+ result[0].road_address.address_name + '</div>' : '';
-				detailAddr += '<div>지번 주소 : ' + result[0].address.address_name
+				detailAddr += '<div>' + result[0].address.address_name
 						+ '</div>';
 
 				var content = '<div class="bAddr">'
-						+ '<span class="title">법정동 주소정보</span>' + detailAddr
+						+ detailAddr
 						+ '</div>';
-				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng
-						.getLng());
+				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng());
+				
 				// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
 				infowindow.setContent(content);
 				infowindow.open(map, marker);
+				selectDistanceLesson(marker);
 			}
 		});
 	});
@@ -638,6 +634,27 @@
 		circle.setPosition(new daum.maps.LatLng(lat, lng));
 		marker.setMap(map);
 		circle.setMap(map);
+	}
+	
+	function selectDistanceLesson(marker){
+		selectMarkers=[];
+		var m1 = marker.getPosition();
+		for (var i = 0; i < markers.length; i++) {
+			var m2 = markers[i].getPosition();
+			var linePath = new daum.maps.Polyline({
+				map:map,
+				path:[m1, m2]
+				});
+			console.log(linePath.getLength());
+			console.log($('input[name=range]').val()*1000);
+			if (linePath.getLength() < $('input[name=range]').val()*1000) {
+				selectMarkers.push(markers[i]);
+			}
+			linePath.setMap(null);
+			for (var j = 0; j < selectMarkers.length; j++) {
+				console.log(selectMarkers[j].getTitle());
+			}
+		}
 	}
 </script>
 
