@@ -231,6 +231,22 @@
 	    
 	    // 생성된 마커를 배열에 추가합니다
 	    markers.push(marker2);
+	  
+	    var iwContent = '<div id="mtitle" class="mx-auto" style="width:5rem;">'+marker2.getTitle()+'</div>';
+	    var infowindow = new daum.maps.InfoWindow({
+	        position : position, 
+	        content : iwContent 
+	    });
+	    daum.maps.event.addListener(marker2, 'mouseover', function() {
+	    	infowindow.open(map, marker2);
+	    });
+	    daum.maps.event.addListener(marker2, 'mouseout', function() {
+	    	 infowindow.close();
+	    });
+	   
+	    daum.maps.event.addListener(marker2, 'click', function() {
+	       location.href = 'mainfront?sid=godetail&no='+marker2.getTitle();
+	    });
 	}
 	
 	$(document).ready(function() {

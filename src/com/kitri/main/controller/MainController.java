@@ -34,8 +34,16 @@ public class MainController {
 
 	}
 	public String viewLessonSelectAjax(HttpServletRequest request, HttpServletResponse response) {
-		MainServiceImpl.getMainServiceImpl().selectLessonByNo(request,response);
+		MainServiceImpl.getMainServiceImpl().selectLessonByNos(request,response);
 		String path = "/lesson.jsp";
 		return path;
+	}
+	public String viewLessonDetailPage(HttpServletRequest request, HttpServletResponse response) {
+		MainServiceImpl.getMainServiceImpl().selectLessonByNo(request, response);
+		String path = "lessondetailpage.jsp";
+		return path;
+	}
+	public void viewLikeList(HttpServletRequest request, HttpServletResponse response) {
+		MainServiceImpl.getMainServiceImpl().countLikeByNo(request, response);
 	}
 }

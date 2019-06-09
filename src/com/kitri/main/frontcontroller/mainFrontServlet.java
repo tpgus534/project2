@@ -10,24 +10,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.kitri.main.controller.MainController;
 import com.kitri.util.MoveUrl;
 
-
 @WebServlet("/mainfront")
 public class mainFrontServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-  
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String sid = request.getParameter("sid");
 		String path = "/index.jsp";
-		
+
 		if ("lessonmaker".equals(sid)) {
-			MainController.getMainController().viewLessonMakerAjax(request, response); 
-			
+			MainController.getMainController().viewLessonMakerAjax(request, response);
+
+		} else if ("godetail".equals(sid)) {
+			path = MainController.getMainController().viewLessonDetailPage(request, response);
+			MoveUrl.forward(request, response, path);
+
+		} else if ("likelist".equals(sid)) {
+			MainController.getMainController().viewLikeList(request, response);
 		}
 	}
 
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String sid = request.getParameter("sid");
 		String path = "/index.jsp";
 		if ("selectlessonbyno".equals(sid)) {

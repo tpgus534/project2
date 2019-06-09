@@ -1,7 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
- <%@ include file="header.jsp" %>  
-		<!-- ±¤°í -->
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ include file="header.jsp" %>
+<c:set var="lesson" value="${requestScope.lesson}"></c:set>
+<c:set var="lessonDetail" value="${requestScope.lessonDetail}"></c:set>
+<c:set var="likeList" value="${requestScope.likeList}"></c:set>
+		<!-- ê´‘ê³  -->
 		<div class="top_bar d-block">
 			<div id="carouselExampleInterval" class="carousel slide"
 				data-ride="carousel">
@@ -61,7 +65,7 @@
 			<hr>
 		</div>
 
-		<!-- °­ÀÇ»ó¼¼ º»¹® -->
+		<!-- ê°•ì˜ìƒì„¸ ë³¸ë¬¸ -->
 		<div class="container">
 			<div class="lec">
 				<div class="row">
@@ -70,109 +74,94 @@
 							<img src="./images/lecmain.jpg" />
 						</div>
 
-						<div class="star mx-auto">¡Ú¡Ú¡Ú¡Ú¡Ú</div>
+						<div class="star mx-auto">â˜…â˜…â˜…â˜…â˜…</div>
 
 						<nav id="navbar" class="stc navbar navbar-expand-sm navbar-dark">
 							<ul class="navbar-nav mx-auto">
-								<li><a href="#section1">¼­ºñ½º¼³¸í</a></li>
-								<li><a href="#section2">°¡°ÝÁ¤º¸</a></li>
-								<li><a href="#section3">Àü¹®°¡ÀÌ·Â</a></li>
-								<li><a href="#section4">Ä¿¸®Å§·³</a></li>
-								<li><a href="#section5">Ãë¼Ò¹×È¯ºÒ±ÔÁ¤</a></li>
-								<li><a href="#section5">´ñ±Û</a></li>
+								<li><a href="#section1">ì„œë¹„ìŠ¤ì„¤ëª…</a></li>
+								<li><a href="#section2">ê°€ê²©ì •ë³´</a></li>
+								<li><a href="#section3">ì „ë¬¸ê°€ì´ë ¥</a></li>
+								<li><a href="#section4">ì»¤ë¦¬í˜ëŸ¼</a></li>
+								<li><a href="#section5">ì·¨ì†Œë°í™˜ë¶ˆê·œì •</a></li>
+								<li><a href="#section5">ëŒ“ê¸€</a></li>
 						</nav>
 
 						<!-- Section 1 -->
 						<div class="lec-content1">
 							<div class="size" id="section1">
-								<div class="big-font pb-3">¼­ºñ½º¼³¸í</div>
+								<div class="big-font pb-3">ì„œë¹„ìŠ¤ì„¤ëª…</div>
 								<div class="small-font">
-									¼­ºñ½º ¼³¸í °æ·Â ¹× ÀÚ°Ý»çÇ× : <br> £ªAIDA+SSI+PADI<br> instructor<br>
-									£ªEFR (Emergency First Response)ÀÀ±Þ±¸Á¶»ç<br> £ªSSI REACT
-									RIGHT(FA.CPR.AED)<br> £ªCMAS NAUI PADI scuba diver<br>
-									<br> ¸ñÇ¥ °¡Ä¡ :<br> ¾ÈÀü ´ÙÀÌºùÀ» ÀÌÇØÇÏ°í, ¼öÁß ÀûÀÀÀ» ÅëÇØ, ÃÊ½ÉÀÚµéÀÌ ¹°¿¡ ´ëÇÑ
-									µÎ·Á¿ò ¾øÀÌ ½±°í Æí¾ÈÇÏ°Ô ÇÁ¸®´ÙÀÌºùÀ» Áñ±æ ¼ö ÀÖ´Â ´É·ÂÀ» °®Ãß°Ô µÈ´Ù. <br> <br>
-									»çÀü ÀÚ°Ý Á¶°Ç <br> 14¼¼ ÀÌ»ó, ½ÅÃ¼ Á¤½ÅÀû °Ç°­ ¾çÈ£ÇÑ ÀÚ (ÀÚ°ÝÁõ »çÀü Á¶°Ç ¾øÀ½) <br>
-									<br> ±³À° ³»¿ë Áö½Ä °³¹ß ³»¿ë <br> Àåºñ : ±âº» ÀåºñÀÇ ¸íÄª°ú ¿ëµµ¹öµð½Ã½ºÅÛ»ý¸®,
-									¹°¸®ÇÐÈ£Èí¹ý, ÃÊ°ú È£Èí<br> È£Èí Æ®·¹ÀÌ´× : ±âÃÊ È£Èí¹ý/ ±ÙÀ°½ºÆ®·¹Äª/ ¸±·º½º Æ®·¹ÀÌ´×<br>
-									Á¦ÇÑ ¼ö¿ª 2 ¼¼¼Ç <br> °ø±â °ø°£ ¾Ð·Â ÆòÇü <br> ÀÔ¼ö¹ý: Head First
-									dive, Duck dive <br> ÇÉ »ç¿ë ¹ßÂ÷±â¼öÆòÀá¿µ(Dynamic ) ¼ö¸é¹«È£Èí (Static)<br>
-									°³¹æ ¼ö¿ª 1È¸ ´ÙÀÌºù <br> °ø±â °ø°£ ¾Ð·Â ÆòÇü(Equalization)ÀÔ¼ö¹ý: Head First
-									dive, Duck dive <br> ÇÉ »ç¿ë ¹ßÂ÷±â: ¹ÙÀÌÇÉ Å± <br> ¼öÁ÷ÇÏ°­ (CWT)
-									: ¼ö½É 10m <br> ÀÚÀ¯ÇÏ°­ (FIM) : ¼ö½É 10m<br>
+									${lessonDetail.les_description}
 								</div>
 							</div>
 							<div class="size" id="section2">
-								<div class="big-font pb-3">°¡°ÝÁ¤º¸</div>
+								<div class="big-font pb-3">ê°€ê²©ì •ë³´</div>
+								${lessonDetail.price_info}
 								<table></table>
 							</div>
 							<div class="size" id="section3">
-								<div class="big-font pb-3">Àü¹®°¡ÀÌ·Â</div>
-								<div>Try to scroll this page and look at the navigation
-									bar while scrolling!</div>
+								<div class="big-font pb-3">ì „ë¬¸ê°€ì´ë ¥</div>
+								<div>ì „ë¬¸ê°€ ì´ë ¥ ì–´ë–»ê²Œ í•˜ì§€??</div>
 							</div>
 							<div class="size" id="section4">
-								<div class="big-font pb-3">Ä¿¸®Å§·³</div>
-								<div>Try to scroll this page and look at the navigation
-									bar while scrolling!</div>
+								<div class="big-font pb-3">ì»¤ë¦¬í˜ëŸ¼</div>
+								<div>${lessonDetail.curri_info}</div>
 							</div>
 							<div class="size" id="section5">
-								<div class="big-font pb-3">Ãë¼Ò¹×È¯ºÒ±ÔÁ¤</div>
+								<div class="big-font pb-3">ì·¨ì†Œë°í™˜ë¶ˆê·œì •</div>
 								<div>
-									°¡. ·¹½¼ È¯ºÒ±âÁØ ¿øÄ¢<br> ÇÐ¿øÀÇ ¼³¸³/¿î¿µ ¹× °ú¿Ü±³½À¿¡ °üÇÑ ¹ý·ü Á¦ 18Á¶(±³½Àºñ µîÀÇ ¹ÝÈ¯
-									µî)<br> - ÇÐ¿ø¼³¸³, ¿î¿µÀÚ, ±³½ÀÀÚ ¹× °³ÀÎ°ú¿Ü±³½ÀÀÚ´Â ÇÐ½ÀÀÚ°¡ ¼ö°­À» °è¼ÓÇÒ ¼ö ¾ø´Â °æ¿ì ¶Ç´Â
-									ÇÐ¿øÀÇ µî·Ï¸»¼Ò, ±³½À¼Ò ÆóÁö µîÀ¸·Î ±³½ÀÀ» °è¼ÓÇÒ ¼ö ¾ø´Â °æ¿ì¿¡´Â ÇÐ½ÀÀÚ·ÎºÎÅÍ ¹ÞÀº<br> ±³½Àºñ¸¦
-									¹ÝÈ¯ÇÏ´Â µî ÇÐ½ÀÀÚ¸¦ º¸È£ÇÏ±â À§ÇÏ¿© ÇÊ¿äÇÑ Á¶Ä¡¸¦ ÇÏ¿©¾ß ÇÑ´Ù.<br> <br> 1. ·¹½¼À»
-									Á¦°øÇÒ ¼ö ¾ø°Å³ª, ·¹½¼ Àå¼Ò¸¦ Á¦°øÇÒ ¼ö ¾ø°Ô µÈ ³¯ : ÀÌ¹Ì ³³ºÎÇÑ ·¹½¼ºñ µîÀ» ÀÏÇÑ °è»êÇÑ ±Ý¾× È¯ºÒ<br>
-									<br> 2. ·¹½¼±â°£ÀÌ 1°³¿ù ÀÌ³»ÀÇ °æ¿ì<br> - ·¹½¼ ½ÃÀÛÀü : ÀÌ¹Ì ³³ºÎÇÑ ·¹½¼ºñ Àü¾×
-									È¯ºÒ<br> - ÃÑ ·¹½¼ ½Ã°£ÀÇ 1/3 °æ°úÀü : ÀÌ¹Ì ³³ºÎÇÑ ·¹½¼ºñÀÇ 2/3¿¡ ÇØ´ç¾× È¯ºÒ<br>
-									- ÃÑ ·¹½¼ ½Ã°£ÀÇ 1/2 °æ°úÀü : ÀÌ¹Ì ³³ºÎÇÑ ·¹½¼ºñ¿ëÀÇ 1/2¿¡ ÇØ´ç¾× È¯ºÒ<br> - ÃÑ
-									·¹½¼½Ã°£ÀÇ 1/2 °æ°úÈÄ : ¹ÝÈ¯ÇÏÁö ¾ÊÀ½<br> <br> 3.·¹½¼ ±â°£ÀÌ 1°³¿ùÀ» ÃÊ°úÇÏ´Â
-									°æ¿ì<br> - ·¹½¼ ½ÃÀÛÀü : ÀÌ¹Ì ³³ºÎÇÑ ·¹½¼ºñ Àü¾× È¯ºÒ<br> - ·¹½¼ ½ÃÀÛÈÄ :
-									¹ÝÈ¯»çÀ¯°¡ ¹ß»ýÇÑ ´çÇØ ¿ùÀÇ ¹ÝÈ¯ ´ë»ó ·¹½¼ºñ(·¹½¼ºñ Â¡¼ö±â°£ÀÌ 1°³¿ù ÀÌ³»ÀÎ °æ¿ì¿¡ µû¶ó »êÃâµÈ ¼ö°­·á¸¦
-									¸»ÇÑ´Ù)¿Í ³ª¸ÓÁö ¿ùÀÇ ·¹½¼ºñ Àü¾×À» ÇÕ»êÇÑ ±Ý¾× È¯ºÒ<br> <br> * ÃÑ ·¹½¼ ½Ã°£ÀÇ
-									·¹½¼ºñ Â¡¼ö±â°£ ÁßÀÇ ÃÑ·¹½¼½Ã°£À» ¸»ÇÏ¸ç, ¹ÝÈ¯ ±Ý¾×ÀÇ »êÁ¤Àº ¹ÝÈ¯ »çÀ¯°¡ ¹ß»ýÇÑ ³¯±îÁö °æ°ú µÈ ·¹½¼½Ã°£À»
-									±âÁØÀ¸·Î ÇÔ<br>
+									ê°€. ë ˆìŠ¨ í™˜ë¶ˆê¸°ì¤€ ì›ì¹™<br> í•™ì›ì˜ ì„¤ë¦½/ìš´ì˜ ë° ê³¼ì™¸êµìŠµì— ê´€í•œ ë²•ë¥  ì œ 18ì¡°(êµìŠµë¹„ ë“±ì˜ ë°˜í™˜
+									ë“±)<br> - í•™ì›ì„¤ë¦½, ìš´ì˜ìž, êµìŠµìž ë° ê°œì¸ê³¼ì™¸êµìŠµìžëŠ” í•™ìŠµìžê°€ ìˆ˜ê°•ì„ ê³„ì†í•  ìˆ˜ ì—†ëŠ” ê²½ìš° ë˜ëŠ”
+									í•™ì›ì˜ ë“±ë¡ë§ì†Œ, êµìŠµì†Œ íì§€ ë“±ìœ¼ë¡œ êµìŠµì„ ê³„ì†í•  ìˆ˜ ì—†ëŠ” ê²½ìš°ì—ëŠ” í•™ìŠµìžë¡œë¶€í„° ë°›ì€<br> êµìŠµë¹„ë¥¼
+									ë°˜í™˜í•˜ëŠ” ë“± í•™ìŠµìžë¥¼ ë³´í˜¸í•˜ê¸° ìœ„í•˜ì—¬ í•„ìš”í•œ ì¡°ì¹˜ë¥¼ í•˜ì—¬ì•¼ í•œë‹¤.<br> <br> 1. ë ˆìŠ¨ì„
+									ì œê³µí•  ìˆ˜ ì—†ê±°ë‚˜, ë ˆìŠ¨ ìž¥ì†Œë¥¼ ì œê³µí•  ìˆ˜ ì—†ê²Œ ëœ ë‚  : ì´ë¯¸ ë‚©ë¶€í•œ ë ˆìŠ¨ë¹„ ë“±ì„ ì¼í•œ ê³„ì‚°í•œ ê¸ˆì•¡ í™˜ë¶ˆ<br>
+									<br> 2. ë ˆìŠ¨ê¸°ê°„ì´ 1ê°œì›” ì´ë‚´ì˜ ê²½ìš°<br> - ë ˆìŠ¨ ì‹œìž‘ì „ : ì´ë¯¸ ë‚©ë¶€í•œ ë ˆìŠ¨ë¹„ ì „ì•¡
+									í™˜ë¶ˆ<br> - ì´ ë ˆìŠ¨ ì‹œê°„ì˜ 1/3 ê²½ê³¼ì „ : ì´ë¯¸ ë‚©ë¶€í•œ ë ˆìŠ¨ë¹„ì˜ 2/3ì— í•´ë‹¹ì•¡ í™˜ë¶ˆ<br>
+									- ì´ ë ˆìŠ¨ ì‹œê°„ì˜ 1/2 ê²½ê³¼ì „ : ì´ë¯¸ ë‚©ë¶€í•œ ë ˆìŠ¨ë¹„ìš©ì˜ 1/2ì— í•´ë‹¹ì•¡ í™˜ë¶ˆ<br> - ì´
+									ë ˆìŠ¨ì‹œê°„ì˜ 1/2 ê²½ê³¼í›„ : ë°˜í™˜í•˜ì§€ ì•ŠìŒ<br> <br> 3.ë ˆìŠ¨ ê¸°ê°„ì´ 1ê°œì›”ì„ ì´ˆê³¼í•˜ëŠ”
+									ê²½ìš°<br> - ë ˆìŠ¨ ì‹œìž‘ì „ : ì´ë¯¸ ë‚©ë¶€í•œ ë ˆìŠ¨ë¹„ ì „ì•¡ í™˜ë¶ˆ<br> - ë ˆìŠ¨ ì‹œìž‘í›„ :
+									ë°˜í™˜ì‚¬ìœ ê°€ ë°œìƒí•œ ë‹¹í•´ ì›”ì˜ ë°˜í™˜ ëŒ€ìƒ ë ˆìŠ¨ë¹„(ë ˆìŠ¨ë¹„ ì§•ìˆ˜ê¸°ê°„ì´ 1ê°œì›” ì´ë‚´ì¸ ê²½ìš°ì— ë”°ë¼ ì‚°ì¶œëœ ìˆ˜ê°•ë£Œë¥¼
+									ë§í•œë‹¤)ì™€ ë‚˜ë¨¸ì§€ ì›”ì˜ ë ˆìŠ¨ë¹„ ì „ì•¡ì„ í•©ì‚°í•œ ê¸ˆì•¡ í™˜ë¶ˆ<br> <br> * ì´ ë ˆìŠ¨ ì‹œê°„ì˜
+									ë ˆìŠ¨ë¹„ ì§•ìˆ˜ê¸°ê°„ ì¤‘ì˜ ì´ë ˆìŠ¨ì‹œê°„ì„ ë§í•˜ë©°, ë°˜í™˜ ê¸ˆì•¡ì˜ ì‚°ì •ì€ ë°˜í™˜ ì‚¬ìœ ê°€ ë°œìƒí•œ ë‚ ê¹Œì§€ ê²½ê³¼ ëœ ë ˆìŠ¨ì‹œê°„ì„
+									ê¸°ì¤€ìœ¼ë¡œ í•¨<br>
 								</div>
 							</div>
 
-							<div id="section6" class="comment">´ñ±Ûµé¾î°¥ºÎºÐ</div>
+							<div id="section6" class="comment">ëŒ“ê¸€ë“¤ì–´ê°ˆë¶€ë¶„</div>
 						</div>
 					</div>
 					<div class="col-4 tp">
-						<!-- °­ÀÇ °³¿ä , ±¸¸Å¹öÆ° , Âò-->
+						<!-- ê°•ì˜ ê°œìš” , êµ¬ë§¤ë²„íŠ¼ , ì°œ-->
 						<div class="container">
-
 							<div class="lec-content2">
-
 								<div class="lec-about">
 									<div class="likelist">
 										<div class="">
 										<div class="float-right d-inline-block"></div>
 											<div class="test test_button d-inline-block">
 												<a href="#" class="button button_light"> <span
-													class="heart">&hearts;</span> <span class="text_like">Like x12</span>
-													<span class="text_liked">Liked x13</span>
+													class="heart">&hearts;</span> <span class="text_like">Like x<span id="likeList1">${likeList}</span></span>
+													<span class="text_liked">Liked x<span id="likeList2">${likeList}</span></span>
 												</a>
 											</div>
 											
 										</div>
 										
 									</div>
-									<div class="cb middle-font mx-auto align-middle">
-										ÇÁ¸®´ÙÀÌºù (¼­¿ï.¼ö¿ø.¼º³².ÀÎÃµ ) µµ¿Í µå¸³´Ï´Ù.
+									<div id="ld_title" class="cb middle-font mx-auto align-middle">
+										${lesson.les_title}
 									</div>
 									<hr>
 									<div class="lec-simple">
 
 										<div class="position-relative">
-											<div class="col-6 float-left">¢ºÁØºñ¹° Á¦°ø(´ë¿©)Æ÷ÇÔ</div>
+											<div class="col-6 float-left">â–¶ì¤€ë¹„ë¬¼ ì œê³µ(ëŒ€ì—¬)í¬í•¨</div>
 										</div>
 										<div class="position-relative">
-											<div class="col-6 float-left">¢º1È¸´ç ·¹½¼½Ã°£ (ºÐ) : 480 ºÐ</div>
+											<div class="col-6 float-left">â–¶1íšŒë‹¹ ë ˆìŠ¨ì‹œê°„ (ë¶„) : 480 ë¶„</div>
 										</div>
 										<div class="position-relative">
-											<div class="col-6 float-left">¢º·¹½¼ È½¼ö : 1 È¸</div>
+											<div class="col-6 float-left">â–¶ë ˆìŠ¨ íšŸìˆ˜ : 1 íšŒ</div>
 										</div>
 
 										<div class="cb"></div>
@@ -183,31 +172,31 @@
 
 
 									<a href="#" class="btn btn-block btn-primary btn-default"
-										style="background-color: #2e21df">±¸¸ÅÇÏ±â(160,000¿ø)</a>
+										style="background-color: #2e21df">êµ¬ë§¤í•˜ê¸°(160,000ì›)</a>
 
 								</div>
-								<!-- Àå¼Ò -->
+								<!-- ìž¥ì†Œ -->
 								<div class="lec-add">
-									<div class="big-font">°­ÀÇ Àå¼Ò</div>
+									<div class="big-font">ê°•ì˜ ìž¥ì†Œ</div>
 									<div class="padd">
 										<ul>
-											<li>°æ±âµµ ¼º³²½Ã</li>
-											<li>°æ±âµµ ¼º³²½Ã</li>
-											<li>°æ±âµµ ¼º³²½Ã</li>
+											<li>ê²½ê¸°ë„ ì„±ë‚¨ì‹œ</li>
+											<li>ê²½ê¸°ë„ ì„±ë‚¨ì‹œ</li>
+											<li>ê²½ê¸°ë„ ì„±ë‚¨ì‹œ</li>
 										</ul>
 									</div>
 								</div>
-								<!-- ³¯Â¥ -->
+								<!-- ë‚ ì§œ -->
 								<div class="lec-date">
 
 									<button class="tablink" onclick="openPage('Home', this)"
-										id="defaultOpen">¿ù</button>
-									<button class="tablink" onclick="openPage('News', this)">È­</button>
-									<button class="tablink" onclick="openPage('Contact', this)">¼ö</button>
-									<button class="tablink" onclick="openPage('About', this)">¸ñ</button>
-									<button class="tablink" onclick="openPage('About', this)">±Ý</button>
-									<button class="tablink" onclick="openPage('About', this)">Åä</button>
-									<button class="tablink" onclick="openPage('About', this)">ÀÏ</button>
+										id="defaultOpen">ì›”</button>
+									<button class="tablink" onclick="openPage('News', this)">í™”</button>
+									<button class="tablink" onclick="openPage('Contact', this)">ìˆ˜</button>
+									<button class="tablink" onclick="openPage('About', this)">ëª©</button>
+									<button class="tablink" onclick="openPage('About', this)">ê¸ˆ</button>
+									<button class="tablink" onclick="openPage('About', this)">í† </button>
+									<button class="tablink" onclick="openPage('About', this)">ì¼</button>
 
 
 									<div id="Home" class="tabcontent">
@@ -230,7 +219,7 @@
 										<p>Who we are and what we do.</p>
 									</div>
 								</div>
-								<!-- ¼±»ýÇÁ·ÎÇÊ -->
+								<!-- ì„ ìƒí”„ë¡œí•„ -->
 								<div class="teacher-profile container">
 									<div class="d-flex justify-content-center pb-3">
 										<div class="image_outer_container">
@@ -240,20 +229,20 @@
 										</div>
 									</div>
 
-									<!-- ¿©±â±îÁö»çÁø -->
-									<div class="big-font text-center  pb-3">°­»ç ÀÌ¸§</div>
+									<!-- ì—¬ê¸°ê¹Œì§€ì‚¬ì§„ -->
+									<div class="big-font text-center  pb-3">ê°•ì‚¬ ì´ë¦„</div>
 
 									<div>
 										<a href="#" class="btn btn-block btn-primary btn-default"
-											style="background-color: #2e21df">Àü¹®°¡¿¡°Ô ¹®ÀÇÇÏ±â</a>
+											style="background-color: #2e21df">ì „ë¬¸ê°€ì—ê²Œ ë¬¸ì˜í•˜ê¸°</a>
 									</div>
-									<div class="small-font">¡Ø³Ê¹« ´ÊÀº ¹ã¿¡´Â ¿¬¶ôÀÌ µÇÁö ¾ÊÀ» ¼ö ÀÖ½À´Ï´Ù.</div>
+									<div class="small-font">â€»ë„ˆë¬´ ëŠ¦ì€ ë°¤ì—ëŠ” ì—°ë½ì´ ë˜ì§€ ì•Šì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</div>
 									<hr>
 
-									<div class="text-center">°­ÀÇÈ½¼ö ¸¸Á·µµ</div>
+									<div class="text-center">ê°•ì˜íšŸìˆ˜ ë§Œì¡±ë„</div>
 									<hr>
 									<div>
-										°­»ç ¼Ò°³<br> ¾È³çÇÏ¼¼¿ä 1Å¸°­»ç ÀÌ¼¼ÇöÀÔ´Ï´Ù.<br> 1Å¸°­»ç´Â ¹«½¼ ui µÚÁ®¶ù!
+										ê°•ì‚¬ ì†Œê°œ<br> ì•ˆë…•í•˜ì„¸ìš” 1íƒ€ê°•ì‚¬ ì´ì„¸í˜„ìž…ë‹ˆë‹¤.<br> 1íƒ€ê°•ì‚¬ëŠ” ë¬´ìŠ¨ ui ë’¤ì ¸ëž!
 									</div>
 								</div>
 							</div>
@@ -317,13 +306,36 @@
 
 			// Get the element with id="defaultOpen" and click on it
 			document.getElementById("defaultOpen").click();
-
+			var no = ${lesson.les_no};
 			$(function() {
 				var NS = '.test';
-
+		
 				$(document).on('click', NS + ' .button', function(e) {
 					e.preventDefault();
 					$(this).closest('.button').toggleClass('selected');
+					
+					if($(this).closest('.button').hasClass("selected") === true) {
+						console.log("1");//insert í•„ìš”
+						$.ajax({
+							url : 'mainfront?sid=likelist&no='+no+'&id=tea1',
+							type : 'get',
+							dataType: "text",
+							success : function(result){
+								$('#likeList2').html(result);
+							}
+						});	
+						} else {//deleteí•„ìš”
+							console.log("2");
+							$.ajax({
+								url : 'mainfront?sid=likelist&no='+no+'&id=tea1',
+								type : 'get',
+								dataType: "text",
+								success : function(result){
+									$('#likeList1').html(result);
+								}
+							});	
+						}
+					
 				});
 			});
 		</script>

@@ -7,15 +7,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <c:forEach var="result" items="${requestScope.selectlesson}">
-	<div class="col-lg-4 course_col">
+	<div id="godetail" class="col-lg-4 course_col" >
 		<div class="course">
 			<div class="course_image">
 				<img src="images/course_5.jpg" alt="">
 			</div>
 			<div class="course_body">
 				<div class="course_title">
-					<a id="result_title" href="course.html">${result.les_title}</a>
+					<a id="result_title" data-no="${result.les_no}" >${result.les_title}</a>
 				</div>
 				<div class="course_info">
 					<ul>
@@ -44,3 +45,10 @@
 	</div>
 </c:forEach>
 
+<script>
+$(document).on("click", '#godetail' , function() {
+	console.log($(this).find($('a[id=result_title]')).data('no'));
+	 location.href = 'mainfront?sid=godetail&no='+$(this).find($('a[id=result_title]')).data('no');
+})
+
+</script>
