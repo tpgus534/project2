@@ -14,7 +14,7 @@
 				<div class="col text-center">
 					<h1 class="home_title">주변의 선생님을 찾아보세요!</h1>
 					<div class="">
-						<div class="w-50 shadow-lg mx-auto">
+						<div class="w-50 shadow	-lg mx-auto">
 							<div class="input-group margin-top">
 								<input id="ipadd" type="text" class="form-control"
 									placeholder="집근처 장소를 검색해봐">
@@ -94,72 +94,63 @@
 
 <!-- 본문 지도 -->
 <div class="mainmap container">
-
-
 	<div id="map" class="map mx-auto">
 		<div class="hAddr">
 			<span class="title">지도중심기준 행정동 주소정보</span> <span id="centerAddr"></span>
 		</div>
-
 	</div>
-
-	<p>
-		<em>지도를 움직여 주세요!</em>
-	</p>
 	<div id="clickLatlng"></div>
 	<!-- 지도 조건 -->
 	<div class=" map_condition">
 		<div class="row mx-auto">
 			<div class="col-4 mt-2">
 				강의 유형 :
-				<form>
+				<form id="les_kind" action="mainfront" method="post">
 					<div class="mt-1">
 						<input type="radio" class="align-middle" id="customRadio2"
-							name="example" value="customEx" checked="checked"><font
+							name="les_kind" value="all" checked="checked"><font
 							class="mf">전체</font>
 					</div class="mt-1">
 					<div class="mt-1">
-						<input type="radio" class="align-middle" id="customRadio"
-							name="example" value="customEx"><font class="mf">원데이</font>
+						<input type="radio" class="align-middle" id="customRadio2"
+							name="les_kind" value="oneday"><font class="mf">원데이</font>
 					</div class="mt-1">
 					<div class="mt-1">
 						<input type="radio" class="align-middle" id="customRadio2"
-							name="example" value="customEx"><font class="mf">일반
+							name="les_kind" value="every"><font class="mf">일반
 							강의</font>
 					</div>
 				</form>
 			</div>
 			<div class="col-4 mt-2">
 				가격 범위 :
-				<form>
+				<form id="les_price" action="mainfront" method="post">
 					<div class="mt-1">
 						<input type="radio" class="align-middle" id="customRadio"
-							name="example" value="customEx" checked="checked"><font
+							name="les_price" value="all" checked="checked"><font
 							class="mf">전체</font>
 					</div>
 					<div class="mt-1">
 						<input type="radio" class="align-middle" id="customRadio"
-							name="example" value="customEx"><font class="mf">~50,000원</font>
+							name="les_price" value="1"><font class="mf">~50,000원</font>
 					</div>
 					<div class="mt-1">
-						<input type="radio" class="align-middle" id="customRadio2"
-							name="example" value="customEx"> <font class="mf">50,000원~100,000원</font>
+						<input type="radio" class="align-middle" id="customRadio"
+							name="les_price" value="2"> <font class="mf">50,000원~100,000원</font>
 					</div>
 					<div class="mt-1">
-						<input type="radio" class="align-middle" id="customRadio2"
-							name="example" value="customEx"> <font class="mf">100,000원~</font>
+						<input type="radio" class="align-middle" id="customRadio"
+							name="les_price" value="3"> <font class="mf">100,000원~</font>
 					</div>
 				</form>
 			</div>
 			<div class="col-4 mt-2">
-				<form>
 					<label for="customRange">지역 범위 :</label><br> <input
 						type="range" class="align-middle" id="customRange" name="range"
 						min="0.5" max="3" step="0.5" value="2"> <label id="range">2</label><label>km</label>
-				</form>
 			</div>
 		</div>
-		<div class="home_button trans_200">
+		<div id="searchbutton" class="home_button trans_200">
 			<a href="#">찾 기</a>
 		</div>
 	</div>
@@ -167,266 +158,21 @@
 <hr>
 <!-- 지도 결과 리스트 -->
 <div id="search-result">
-
 	<!-- Courses -->
-
 	<div class="courses">
 		<div class="courses_background"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<h2 class="section_title text-center">검색 결과</h2>
+					<h2 class="section_title text-center">검색결과</h2>
 				</div>
 			</div>
-			<div class="row courses_row">
-				<!-- 카테고리 -->
-
-				<div class="language">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<div class="language_slider_container">
-
-									<!-- Language Slider -->
-
-									<div class="owl-carousel owl-theme language_slider">
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/Ukrainian.svg" alt="">
-												</div>
-												<div class="lang_name">디자인</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/Japanese.svg" alt="">
-												</div>
-												<div class="lang_name">외국어</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/Lithuanian.svg" alt="">
-												</div>
-												<div class="lang_name">컴퓨터</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/Swedish.svg" alt="">
-												</div>
-												<div class="lang_name">마케팅</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/English.svg" alt="">
-												</div>
-												<div class="lang_name">커뮤니케이션</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/Italian.svg" alt="">
-												</div>
-												<div class="lang_name">문서.취업</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/Chinese.svg" alt="">
-												</div>
-												<div class="lang_name">영상.사진</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/French.svg" alt="">
-												</div>
-												<div class="lang_name">스포츠</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/German.svg" alt="">
-												</div>
-												<div class="lang_name">음악,악기</div>
-											</a>
-										</div>
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/German.svg" alt="">
-												</div>
-												<div class="lang_name">취미,문화</div>
-											</a>
-										</div>
-
-										<!-- Flag -->
-										<div class="owl-item language_item">
-											<a href="#">
-												<div class="flag">
-													<img src="images/German.svg" alt="">
-												</div>
-												<div class="lang_name">기타</div>
-											</a>
-										</div>
-
-									</div>
-
-									<div class="lang_nav lang_prev">
-										<i class="fa fa-angle-left" aria-hidden="true"></i>
-									</div>
-									<div class="lang_nav lang_next">
-										<i class="fa fa-angle-right" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Course -->
-				<div class="col-lg-4 course_col">
-					<div class="course">
-						<div class="course_image">
-							<img src="images/course_1.jpg" alt="">
-						</div>
-						<div class="course_body">
-							<div class="course_title">
-								<a href="course.html">Vocabulary</a>
-							</div>
-							<div class="course_info">
-								<ul>
-									<li><a href="instructors.html">Sarah Parker</a></li>
-									<li><a href="#">English</a></li>
-								</ul>
-							</div>
-							<div class="course_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Fusce enim nulla.</p>
-							</div>
-						</div>
-						<div
-							class="course_footer d-flex flex-row align-items-center justify-content-start">
-							<div class="course_students">
-								<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
-							</div>
-							<div class="course_rating ml-auto">
-								<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
-							</div>
-							<div class="course_mark course_free trans_200">
-								<a href="#">Free</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Course -->
-				<div class="col-lg-4 course_col">
-					<div class="course">
-						<div class="course_image">
-							<img src="images/course_2.jpg" alt="">
-						</div>
-						<div class="course_body">
-							<div class="course_title">
-								<a href="course.html">Vocabulary</a>
-							</div>
-							<div class="course_info">
-								<ul>
-									<li><a href="instructors.html">Sarah Parker</a></li>
-									<li><a href="#">Spanish</a></li>
-								</ul>
-							</div>
-							<div class="course_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Fusce enim nulla.</p>
-							</div>
-						</div>
-						<div
-							class="course_footer d-flex flex-row align-items-center justify-content-start">
-							<div class="course_students">
-								<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
-							</div>
-							<div class="course_rating ml-auto">
-								<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
-							</div>
-							<div class="course_mark course_free trans_200">
-								<a href="#">Free</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Course -->
-				<div class="col-lg-4 course_col">
-					<div class="course">
-						<div class="course_image">
-							<img src="images/course_3.jpg" alt="">
-						</div>
-						<div class="course_body">
-							<div class="course_title">
-								<a href="course.html">Vocabulary</a>
-							</div>
-							<div class="course_info">
-								<ul>
-									<li><a href="instructors.html">Sarah Parker</a></li>
-									<li><a href="#">English</a></li>
-								</ul>
-							</div>
-							<div class="course_text">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Fusce enim nulla.</p>
-							</div>
-						</div>
-						<div
-							class="course_footer d-flex flex-row align-items-center justify-content-start">
-							<div class="course_students">
-								<i class="fa fa-user" aria-hidden="true"></i><span>10</span>
-							</div>
-							<div class="course_rating ml-auto">
-								<i class="fa fa-star" aria-hidden="true"></i><span>4,5</span>
-							</div>
-							<div class="course_mark trans_200">
-								<a href="#">$45</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
+			<div id="lessonbox" class="row courses_row"></div>
 		</div>
 	</div>
-
 </div>
 <script type="text/javascript">
+	var arr=[];
 	var markers = [];
 	var selectMarkers=[];
 	var container = document.getElementById('map');
@@ -472,12 +218,13 @@
 	
 
 	// 마커를 생성하고 지도위에 표시하는 함수입니다
-	function addMarker(position) {
+	function addMarker(position,title) {
 	    
 	    // 마커를 생성합니다
 	    var marker2 = new daum.maps.Marker({
 	        position: position
 	    });
+	    marker2.setTitle(title);
 
 	    // 마커가 지도 위에 표시되도록 설정합니다
 	    marker2.setMap(map);
@@ -487,22 +234,46 @@
 	}
 	
 	$(document).ready(function() {
-
+		$('div[id=searchbutton]>a').click(function(event) {
+			var formData1 = $("input[name=les_kind]:checked").val();
+			var formData2 = $("input[name=les_price]:checked").val();
+			event.preventDefault(); 
+			$.ajax({
+				url : 'mainfront?sid=selectlessonbyno',
+				type : 'post',
+				data :{"arr" : arr,
+						"les_kind" : formData1,
+						"les_price" : formData2,
+						},
+				traditional : true,
+				//dataType : "JSON",
+				dataType : "html",
+				success : function(result) {
+					$("#lessonbox").html(result);
+				},
+				error : function(q, w, e) {
+					alert(q + w + e);
+				}
+			}); 
+			  
+		});
 		$('input[name=range]').change(function() {
 			var jb = $('input[name=range]').val();
 			$("label[id=range]").html(jb);
 			circle.setRadius(jb * 1000);
 		});
 		$.ajax({
-			url : 'front',
+			url : 'mainfront?sid=lessonmaker',
 			type : 'GET',
-			data : 'sid=lessonmaker',
+		/* 	data : '', */
 			dataType : "JSON",
 			success : function(result) {
+				console.log(result);
 					for (var i = 0; i < result.length; i++) {
 						var lat = result[i].les_x;
 						var lug = result[i].les_y;
-					addMarker(new daum.maps.LatLng(lat,lug));
+						var title = result[i].les_no;
+					addMarker(new daum.maps.LatLng(lat,lug),title);
 					}			
 			}	
 		});
@@ -511,12 +282,6 @@
 	daum.maps.event.addListener(map, 'click', function(mouseEvent) {
 		var latlng = mouseEvent.latLng;
 		marker.setPosition(latlng);
-		console.log(latlng.getLat() + "," + latlng.getLng());
-		var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-		message += '경도는 ' + latlng.getLng() + ' 입니다';
-
-		var resultDiv = document.getElementById('clickLatlng');
-		resultDiv.innerHTML = message;
 	});
 
 	var geocoder = new daum.maps.services.Geocoder();
@@ -534,10 +299,7 @@
 						+ detailAddr
 						+ '</div>';
 				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng());
-				
-				// 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
-				infowindow.setContent(content);
-				infowindow.open(map, marker);
+
 				selectDistanceLesson(marker);
 			}
 		});
@@ -637,6 +399,7 @@
 	}
 	
 	function selectDistanceLesson(marker){
+		arr=[];
 		selectMarkers=[];
 		var m1 = marker.getPosition();
 		for (var i = 0; i < markers.length; i++) {
@@ -651,10 +414,14 @@
 				selectMarkers.push(markers[i]);
 			}
 			linePath.setMap(null);
-			for (var j = 0; j < selectMarkers.length; j++) {
-				console.log(selectMarkers[j].getTitle());
-			}
 		}
+		
+		for (var j = 0; j < selectMarkers.length; j++) {
+			console.log(selectMarkers[j].getTitle());
+			arr.push(selectMarkers[j].getTitle());
+		}
+	
+		
 	}
 </script>
 
