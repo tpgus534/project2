@@ -11,4 +11,7 @@ public interface MainDao {
 	public JsonArray lessonMaker();
 	public LessonDetail selectLessonDetailByNo(String no);
 	public int countLikeByNo(String no);
+	public void insertLikeList(String les_no, String stu_id);
+	public void deleteLikeList(String les_no, String stu_id);
+	public int findLikeList(String stu_id, String les_no);
 }

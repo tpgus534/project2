@@ -139,7 +139,7 @@
 										<div class="">
 										<div class="float-right d-inline-block"></div>
 											<div class="test test_button d-inline-block">
-												<a href="#" class="button button_light"> <span
+												<a id="li" href="#" class="button button_light"> <span
 													class="heart">&hearts;</span> <span class="text_like">Like x<span id="likeList1">${likeList}</span></span>
 													<span class="text_liked">Liked x<span id="likeList2">${likeList}</span></span>
 												</a>
@@ -306,18 +306,28 @@
 
 			// Get the element with id="defaultOpen" and click on it
 			document.getElementById("defaultOpen").click();
-			var no = ${lesson.les_no};
+			var no = "${lesson.les_no}";
 			$(function() {
+				$.ajax({
+					url : 'mainfront?sid=findLikeList&no='+no+'&stu_id=test1',
+					type : 'get',
+					dataType : 'text',
+					success : function(result){
+						if (result == 1) {
+							$('#li').addClass("selected");
+						}
+					}
+				});
+				
+				
 				var NS = '.test';
-		
 				$(document).on('click', NS + ' .button', function(e) {
 					e.preventDefault();
 					$(this).closest('.button').toggleClass('selected');
 					
 					if($(this).closest('.button').hasClass("selected") === true) {
-						console.log("1");//insert 필요
 						$.ajax({
-							url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id=stu1',
+							url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id=test1',
 							type : 'get',
 							dataType: "text",
 							success : function(result){
@@ -325,9 +335,8 @@
 							}
 						});	
 						} else {//delete필요
-							console.log("2");
 							$.ajax({
-								url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id=stu1',
+								url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id=test1',
 								type : 'get',
 								dataType: "text",
 								success : function(result){

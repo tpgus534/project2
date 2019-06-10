@@ -31,7 +31,7 @@ public class MainDaoImpl implements MainDao {
 	@Override
 	public Lesson selectLessonByNo(String no) {
 		String sql = "SELECT LES_NO, LES_TITLE, LES_ADDRESS, LES_STATUS, LES_MAX, LES_KIND, LES_REGISTERDATE, LES_STARTDATE, LES_ENDDATE, LES_PRICE, TEA_ID, CAT_NO FROM KITRI.LESSON WHERE LES_NO = ?";
-		Connection conn =null;
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		Lesson lesson = null;
@@ -42,21 +42,21 @@ public class MainDaoImpl implements MainDao {
 			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-			
-			lesson = new Lesson();
 
-			lesson.setCat_no(rs.getInt("CAT_NO"));
-			lesson.setLes_address(rs.getString("LES_ADDRESS"));
-			lesson.setLes_endDate(rs.getDate("LES_ENDDATE"));
-			lesson.setLes_kind(rs.getString("LES_KIND"));
-			lesson.setLes_max(rs.getInt("LES_MAX"));
-			lesson.setLes_no(rs.getString("LES_NO"));
-			lesson.setLes_price(rs.getInt("LES_PRICE"));
-			lesson.setLes_registerDate(rs.getDate("LES_REGISTERDATE"));
-			lesson.setLes_startDate(rs.getDate("LES_STARTDATE"));
-			lesson.setLes_status(rs.getString("LES_STATUS"));
-			lesson.setLes_title(rs.getString("LES_TITLE"));
-			lesson.setTea_id(rs.getString("TEA_ID"));
+				lesson = new Lesson();
+
+				lesson.setCat_no(rs.getInt("CAT_NO"));
+				lesson.setLes_address(rs.getString("LES_ADDRESS"));
+				lesson.setLes_endDate(rs.getDate("LES_ENDDATE"));
+				lesson.setLes_kind(rs.getString("LES_KIND"));
+				lesson.setLes_max(rs.getInt("LES_MAX"));
+				lesson.setLes_no(rs.getString("LES_NO"));
+				lesson.setLes_price(rs.getInt("LES_PRICE"));
+				lesson.setLes_registerDate(rs.getDate("LES_REGISTERDATE"));
+				lesson.setLes_startDate(rs.getDate("LES_STARTDATE"));
+				lesson.setLes_status(rs.getString("LES_STATUS"));
+				lesson.setLes_title(rs.getString("LES_TITLE"));
+				lesson.setTea_id(rs.getString("TEA_ID"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -123,7 +123,7 @@ public class MainDaoImpl implements MainDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBClose.close(conn, pstmt, rs);
 		}
 		return lesson;
@@ -163,15 +163,13 @@ public class MainDaoImpl implements MainDao {
 		}
 		return arrayList;
 	}
+
 	@Override
 	public LessonDetail selectLessonDetailByNo(String no) {
-		String sql = "SELECT \r\n" + 
-				"LES_NO, LES_DESCRIPTION, CURRI_INFO, \r\n" + 
-				"   MAINIMG_PATH, PRICE_INFO, MON, \r\n" + 
-				"   TUE, WED, THU, \r\n" + 
-				"   FRI, SAT, SUN\r\n" + 
-				" FROM KITRI.LESSON_DETAIL WHERE LES_NO = ?";
-		Connection conn =null;
+		String sql = "SELECT \r\n" + "LES_NO, LES_DESCRIPTION, CURRI_INFO, \r\n"
+				+ "   MAINIMG_PATH, PRICE_INFO, MON, \r\n" + "   TUE, WED, THU, \r\n" + "   FRI, SAT, SUN\r\n"
+				+ " FROM KITRI.LESSON_DETAIL WHERE LES_NO = ?";
+		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		LessonDetail lessonDetail = null;
@@ -181,7 +179,7 @@ public class MainDaoImpl implements MainDao {
 			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-			
+
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -194,13 +192,11 @@ public class MainDaoImpl implements MainDao {
 
 	@Override
 	public int countLikeByNo(String no) {
-		String sql = "select count(*)\r\n" + 
-				"from likelist \r\n" + 
-				"where les_no = ?";
+		String sql = "select count(*)\r\n" + "from likelist \r\n" + "where les_no = ?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int countLike=0;
+		int countLike = 0;
 		try {
 			conn = DBConnection.makeConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -216,6 +212,73 @@ public class MainDaoImpl implements MainDao {
 			DBClose.close(conn, pstmt, rs);
 		}
 		return countLike;
+	}
+
+	@Override
+	public void insertLikeList(String les_no, String stu_id) {
+		String sql = "insert into likelist(stu_id, les_no) values(?,?)";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int a = 0;
+		try {
+			conn = DBConnection.makeConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, stu_id);
+			pstmt.setString(2, les_no);
+			a = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+	}
+
+	@Override
+	public void deleteLikeList(String les_no, String stu_id) {
+		String sql = "delete from likelist where les_no = ? and stu_id = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int a = 0;
+		try {
+			conn = DBConnection.makeConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, les_no);
+			pstmt.setString(2, stu_id);
+			a = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt);
+		}
+
+	}
+	@Override
+	public int findLikeList(String les_no, String stu_id) {
+		String sql = "select count(*) from likelist where stu_id = ? and les_no = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int countLike = 0;
+		try {
+			conn = DBConnection.makeConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, stu_id);
+			pstmt.setString(2, les_no);
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				countLike = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return countLike;
+		
 	}
 
 }

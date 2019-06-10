@@ -32,7 +32,9 @@ public class mainFrontServlet extends HttpServlet {
 		} else if ("likelistdelete".equals(sid)) {
 			MainController.getMainController().likeListDelete(request, response);
 			MainController.getMainController().viewLikeList(request, response);
-		}
+		} else if ("findLikeList".equals(sid)) {
+			MainController.getMainController().fidnLikeList(request, response);
+		} 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

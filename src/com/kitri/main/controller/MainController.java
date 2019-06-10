@@ -54,4 +54,8 @@ public class MainController {
 		MainServiceImpl.getMainServiceImpl().deleteLikeList(request, response);
 		
 	}
+	public void fidnLikeList(HttpServletRequest request, HttpServletResponse response) {
+		MainServiceImpl.getMainServiceImpl().findLikeList(request, response);
+		
+	}
 }

@@ -92,4 +92,21 @@ public class MainServiceImpl implements MainService {
 		
 	}
 
+	public void findLikeList(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+		String stu_id = request.getParameter("stu_id");
+		int a = MainDaoImpl.getMainDaoImpl().findLikeList(no, stu_id);
+		PrintWriter out;
+		try {
+			out =response.getWriter();
+			out.print(a);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
 }
