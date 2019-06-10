@@ -317,7 +317,7 @@
 					if($(this).closest('.button').hasClass("selected") === true) {
 						console.log("1");//insert 필요
 						$.ajax({
-							url : 'mainfront?sid=likelist&no='+no+'&id=tea1',
+							url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id=stu1',
 							type : 'get',
 							dataType: "text",
 							success : function(result){
@@ -327,7 +327,7 @@
 						} else {//delete필요
 							console.log("2");
 							$.ajax({
-								url : 'mainfront?sid=likelist&no='+no+'&id=tea1',
+								url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id=stu1',
 								type : 'get',
 								dataType: "text",
 								success : function(result){

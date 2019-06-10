@@ -78,4 +78,18 @@ public class MainServiceImpl implements MainService {
 		
 	}
 
+	public void insertLikeList(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+		String stu_id = request.getParameter("stu_id");
+		MainDaoImpl.getMainDaoImpl().insertLikeList(no,stu_id);
+		
+	}
+
+	public void deleteLikeList(HttpServletRequest request, HttpServletResponse response) {
+		String no = request.getParameter("no");
+		String stu_id = request.getParameter("stu_id");
+		MainDaoImpl.getMainDaoImpl().deleteLikeList(no,stu_id);
+		
+	}
+
 }

@@ -46,4 +46,12 @@ public class MainController {
 	public void viewLikeList(HttpServletRequest request, HttpServletResponse response) {
 		MainServiceImpl.getMainServiceImpl().countLikeByNo(request, response);
 	}
+	public void likeListInsert(HttpServletRequest request, HttpServletResponse response) {
+		MainServiceImpl.getMainServiceImpl().insertLikeList(request, response);
+		
+	}
+	public void likeListDelete(HttpServletRequest request, HttpServletResponse response) {
+		MainServiceImpl.getMainServiceImpl().deleteLikeList(request, response);
+		
+	}
 }

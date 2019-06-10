@@ -424,8 +424,6 @@
 				map:map,
 				path:[m1, m2]
 				});
-			console.log(linePath.getLength());
-			console.log($('input[name=range]').val()*1000);
 			if (linePath.getLength() < $('input[name=range]').val()*1000) {
 				selectMarkers.push(markers[i]);
 			}
@@ -433,7 +431,6 @@
 		}
 		
 		for (var j = 0; j < selectMarkers.length; j++) {
-			console.log(selectMarkers[j].getTitle());
 			arr.push(selectMarkers[j].getTitle());
 		}
 	

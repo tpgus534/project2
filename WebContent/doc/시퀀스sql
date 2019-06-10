@@ -1,0 +1,67 @@
+-시퀀스-
+
+	포맷 : to_char(lesson_seq.nextval, '00000000')
+
+	강의번호
+	
+		DROP SEQUENCE lesson_seq;
+		CREATE SEQUENCE lesson_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;
+	
+	강의신고번호
+	
+		DROP SEQUENCE singo_seq;
+		CREATE SEQUENCE singo_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;
+	
+	컴플레인번호
+	
+		DROP SEQUENCE complain_seq;
+		CREATE SEQUENCE complain_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;
+	
+	카테고리번호
+	
+		DROP SEQUENCE category_seq;
+		CREATE SEQUENCE category_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99;
+	
+	광고번호
+	
+		DROP SEQUENCE ad_no_seq;
+		CREATE SEQUENCE ad_no_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;
+	
+	결제번호
+	
+		DROP SEQUENCE pay_no_seq;
+		CREATE SEQUENCE pay_no_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;
+		
+	댓글번호
+	
+		DROP SEQUENCE rep_no_seq;
+		CREATE SEQUENCE rep_no_seq
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;
+		
+	매출번호
+	
+		DROP SEQUENCE sale_no;
+		CREATE SEQUENCE sale_no
+		START WITH 1
+		INCREMENT BY 1
+		MAXVALUE 99999999;

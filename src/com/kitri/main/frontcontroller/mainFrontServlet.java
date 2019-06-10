@@ -26,7 +26,11 @@ public class mainFrontServlet extends HttpServlet {
 			path = MainController.getMainController().viewLessonDetailPage(request, response);
 			MoveUrl.forward(request, response, path);
 
-		} else if ("likelist".equals(sid)) {
+		} else if ("likelistinsert".equals(sid)) {
+			MainController.getMainController().likeListInsert(request, response);
+			MainController.getMainController().viewLikeList(request, response);
+		} else if ("likelistdelete".equals(sid)) {
+			MainController.getMainController().likeListDelete(request, response);
 			MainController.getMainController().viewLikeList(request, response);
 		}
 	}
