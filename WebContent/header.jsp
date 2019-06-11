@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="loginInfo" value="${sessionScope.loginInfo}"></c:set>
 <!DOCTYPE html>
 <html lang="utf-8">
 <head>
@@ -36,20 +38,35 @@
 						<div class="col">
 							<div
 								class="header_content d-flex flex-row align-items-center justify-content-start">
-
-
 								<a href="#">
 									<div class="logo_text">HOBBIST</div>
 								</a>
 								<div class="rightdiv">
-									<ul class="main_nav">
-										<li><a href="courses.html">로그인</a></li>
-										<li><a href="courses.html">회원가입</a></li>
-									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 		</header>
+		<script type="text/javascript">
+			$(document).ready(
+					function() {
+						var loginId = "${loginInfo.id}";
+						var loginClass = "${loginInfo.loginClass}";
+						console.log(loginId + " "+loginClass );
+						if (loginId!=null) {
+							
+						}
+						$.ajax({
+							url : "mainfront?sid=selectId",
+							type : "post",
+							data : "loginId=" + loginId + "&loginClass="+ loginClass,
+							dataType: "text",
+							success : function(result) {
+								$('.rightdiv').html(result);
+							}
+
+						});
+					});
+		</script>
 		<!-- header -->

@@ -58,4 +58,9 @@ public class MainController {
 		MainServiceImpl.getMainServiceImpl().findLikeList(request, response);
 		
 	}
+	public String viewLoginInfo(HttpServletRequest request, HttpServletResponse response) {
+		String path = "/loginconfirm.jsp";
+		MainServiceImpl.getMainServiceImpl().viewLoginInfo(request, response);
+		return path;
+	}
 }

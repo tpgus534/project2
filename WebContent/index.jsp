@@ -4,7 +4,6 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=67cafe381089c40769059fbbedfa054e&libraries=services,clusterer,drawing"></script>
 <!-- Home -->
-
 <div class="home">
 	<div class="home_background"
 		style="background-image: url(images/index_background.jpg);"></div>

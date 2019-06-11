@@ -44,6 +44,9 @@ public class mainFrontServlet extends HttpServlet {
 		if ("selectlessonbyno".equals(sid)) {
 			path = MainController.getMainController().viewLessonSelectAjax(request, response);
 			MoveUrl.forward(request, response, path);
+		} else if("selectId".equals(sid)) {
+			path = MainController.getMainController().viewLoginInfo(request, response);
+			MoveUrl.forward(request, response, path);
 		}
 	}
 

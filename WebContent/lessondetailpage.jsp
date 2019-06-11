@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ include file="header.jsp" %>
+ <c:set var = "loginInfo" value="${session.loginInfo}"></c:set>
 <c:set var="lesson" value="${requestScope.lesson}"></c:set>
 <c:set var="lessonDetail" value="${requestScope.lessonDetail}"></c:set>
 <c:set var="likeList" value="${requestScope.likeList}"></c:set>
@@ -319,7 +320,7 @@
 					}
 				});
 				
-				
+				var id = "${loginInfo.id}";
 				var NS = '.test';
 				$(document).on('click', NS + ' .button', function(e) {
 					e.preventDefault();
@@ -327,7 +328,7 @@
 					
 					if($(this).closest('.button').hasClass("selected") === true) {
 						$.ajax({
-							url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id=test1',
+							url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id='+id,
 							type : 'get',
 							dataType: "text",
 							success : function(result){
@@ -336,7 +337,7 @@
 						});	
 						} else {//delete필요
 							$.ajax({
-								url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id=test1',
+								url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id='+id,
 								type : 'get',
 								dataType: "text",
 								success : function(result){

@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.kitri.dto.Admin;
 import com.kitri.dto.Lesson;
 import com.kitri.dto.LessonDetail;
+import com.kitri.dto.Student;
+import com.kitri.dto.Teacher;
 import com.kitri.main.dao.MainDaoImpl;
 
 public class MainServiceImpl implements MainService {
@@ -46,7 +49,7 @@ public class MainServiceImpl implements MainService {
 		request.setAttribute("lesson", lesson);
 		request.setAttribute("lessonDetail", lessonDetail);
 		request.setAttribute("likeList", likelist);
-		
+
 	}
 
 	public void selectLessonByNos(HttpServletRequest request, HttpServletResponse response) {
@@ -75,21 +78,21 @@ public class MainServiceImpl implements MainService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	public void insertLikeList(HttpServletRequest request, HttpServletResponse response) {
 		String no = request.getParameter("no");
 		String stu_id = request.getParameter("stu_id");
-		MainDaoImpl.getMainDaoImpl().insertLikeList(no,stu_id);
-		
+		MainDaoImpl.getMainDaoImpl().insertLikeList(no, stu_id);
+
 	}
 
 	public void deleteLikeList(HttpServletRequest request, HttpServletResponse response) {
 		String no = request.getParameter("no");
 		String stu_id = request.getParameter("stu_id");
-		MainDaoImpl.getMainDaoImpl().deleteLikeList(no,stu_id);
-		
+		MainDaoImpl.getMainDaoImpl().deleteLikeList(no, stu_id);
+
 	}
 
 	public void findLikeList(HttpServletRequest request, HttpServletResponse response) {
@@ -98,15 +101,37 @@ public class MainServiceImpl implements MainService {
 		int a = MainDaoImpl.getMainDaoImpl().findLikeList(no, stu_id);
 		PrintWriter out;
 		try {
-			out =response.getWriter();
+			out = response.getWriter();
 			out.print(a);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
+	}
+
+	public void viewLoginInfo(HttpServletRequest request, HttpServletResponse response) {
+		String loginId = request.getParameter("loginId");
+		String loginClass = request.getParameter("loginClass");
+		switch (loginClass) {
+		case "t":
+			Teacher teacher = MainDaoImpl.getMainDaoImpl().selectTeacherById(loginId);
+			request.setAttribute("user", teacher);
+			request.setAttribute("loginClass", "t");
+			break;
+		case "s":
+			Student student = MainDaoImpl.getMainDaoImpl().selectStudentById(loginId);
+			request.setAttribute("user", student);
+			request.setAttribute("loginClass", "s");
+			break;
+		case "a":
+			Admin admin = MainDaoImpl.getMainDaoImpl().selectAdminById(loginId);
+			request.setAttribute("user", admin);
+			request.setAttribute("loginClass", "a");
+			break;
+		case "" :
+			request.setAttribute("loginClass", "");
+			break;
+		}
 	}
 
 }
