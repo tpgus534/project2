@@ -48,7 +48,7 @@
 <script>
 $(document).on("click", '#godetail' , function() {
 	console.log($(this).find($('a[id=result_title]')).data('no'));
-	 location.href = 'mainfront?sid=godetail&no='+$(this).find($('a[id=result_title]')).data('no');
+	 location.href = '../mainfront?sid=godetail&no='+$(this).find($('a[id=result_title]')).data('no');
 })
 
 </script>

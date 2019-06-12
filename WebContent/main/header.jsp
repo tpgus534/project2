@@ -1,7 +1,7 @@
-<%@page import="com.kitri.dto.Teacher"%>
-<%@page import="com.kitri.dto.Student"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@page import="com.kitri.dto.Student"%>
+<%@page import="com.kitri.dto.Teacher"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -23,30 +23,26 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
-	href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"
+	href="${pageContext.request.contextPath}/styles/bootstrap4/bootstrap.min.css">
+<link href="${pageContext.request.contextPath}/plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css"
-	href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	href="${pageContext.request.contextPath}/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
 <link rel="stylesheet" type="text/css"
-	href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	href="${pageContext.request.contextPath}/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
 <link rel="stylesheet" type="text/css"
-	href="plugins/OwlCarousel2-2.2.1/animate.css">
-<link rel="stylesheet" type="text/css" href="styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/responsive.css">
-<link rel="stylesheet" type="text/css" href="styles/sehyun.css">
+	href="${pageContext.request.contextPath}/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/sehyun.css">
 </head>
-
-	
 <%
 Student student = (Student) session.getAttribute("student");
 Teacher teacher = (Teacher) session.getAttribute("teacher");
-	
    String stu_id = null;
    if(student != null) {
 	   stu_id = student.getStu_id();   
    }
-   
    String tea_id = null;
    if(teacher != null) {
 	   tea_id = teacher.getTea_id();   
@@ -91,6 +87,61 @@ function logout(){
 					</div>
 				</div>
 		</header>
+		<!-- 광고 -->
+<div class="top_bar d-block">
+	<div id="carouselExampleInterval" class="carousel slide"
+		data-ride="carousel">
+		<ol class="carousel-indicators mb-0">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/red.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/orange.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/yellow.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/green.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/skyblue.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/blue.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+			<div class="carousel-item" data-interval="1000">
+				<img src="${pageContext.request.contextPath}/images/ad/pupple.png" class="img-ad d-block w-100"
+					alt="...">
+			</div>
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleInterval"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleInterval"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+</div>
 		<!-- <script type="text/javascript">
 			$(document).ready(function() {
 				var loginId = "${id}";

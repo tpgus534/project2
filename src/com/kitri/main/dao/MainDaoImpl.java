@@ -410,5 +410,30 @@ public class MainDaoImpl implements MainDao {
 		
 		
 	}
+	
+	public int buyConfirm(String loginId, String les_no) {
+		String sql = "select count(*) from lesson_intersector where stu_id = ? and les_no = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int buyConfirm = 0;
+		try {
+			conn = DBConnection.makeConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, loginId);
+			pstmt.setString(2, les_no);
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				buyConfirm = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return buyConfirm;
+	}
 
 }

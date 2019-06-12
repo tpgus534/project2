@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="header.jsp"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:choose>
 	<c:when test="${empty sessionScope.student && not empty sessionScope.teacher}">
 		<c:set var="id" value="${sessionScope.teacher}"></c:set>
@@ -16,12 +15,13 @@
 		<c:set var="loginClass" value="a"></c:set>
 	</c:when>
 </c:choose>
+
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=67cafe381089c40769059fbbedfa054e&libraries=services,clusterer,drawing"></script>
 <!-- Home -->
 <div class="home">
 	<div class="home_background"
-		style="background-image: url(images/index_background.jpg);"></div>
+		style="background-image: url(${pageContext.request.contextPath}/images/index_background.jpg);"></div>
 	<div class="home_content">
 		<div class="container">
 			<div class="row">
@@ -46,61 +46,6 @@
 </div>
 
 <!-- 본문시작 -->
-<!-- 광고 -->
-<div class="top_bar d-block">
-	<div id="carouselExampleInterval" class="carousel slide"
-		data-ride="carousel">
-		<ol class="carousel-indicators mb-0">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0"
-				class="active"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-		</ol>
-		<div class="carousel-inner">
-			<div class="carousel-item active" data-interval="1000">
-				<img src="./images/ad/red.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-			<div class="carousel-item" data-interval="1000">
-				<img src="./images/ad/orange.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-			<div class="carousel-item" data-interval="1000">
-				<img src="./images/ad/yellow.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-			<div class="carousel-item" data-interval="1000">
-				<img src="./images/ad/green.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-			<div class="carousel-item" data-interval="1000">
-				<img src="./images/ad/skyblue.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-			<div class="carousel-item" data-interval="1000">
-				<img src="./images/ad/blue.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-			<div class="carousel-item" data-interval="1000">
-				<img src="./images/ad/pupple.png" class="img-ad d-block w-100"
-					alt="...">
-			</div>
-		</div>
-		<a class="carousel-control-prev" href="#carouselExampleInterval"
-			role="button" data-slide="prev"> <span
-			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-			class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#carouselExampleInterval"
-			role="button" data-slide="next"> <span
-			class="carousel-control-next-icon" aria-hidden="true"></span> <span
-			class="sr-only">Next</span>
-		</a>
-	</div>
-</div>
 
 <div>
 	<hr>
@@ -206,7 +151,7 @@
 	}
 	var map = new daum.maps.Map(container, options);
 
-	var imageSrc = './images/member_marker.png', // 마커이미지의 주소입니다    
+	var imageSrc = '${pageContext.request.contextPath}/images/member_marker.png', // 마커이미지의 주소입니다    
 	imageSize = new daum.maps.Size(64, 69), // 마커이미지의 크기입니다
 	imageOption = {
 		offset : new daum.maps.Point(30, 55)
@@ -268,17 +213,36 @@
 		});
 
 		daum.maps.event.addListener(marker2, 'click', function() {
-			location.href = '../mainfront?sid=godetail&no=' + marker2.getTitle();
+			page_move("${pageContext.request.contextPath}/mainfront?sid=godetail","test3","00000003");
+			//$.post("${pageContext.request.contextPath}/mainfront?sid=godetail", {"loginId" : "test3", "no" : "00000003"},function(data));
+			//location.href = '${pageContext.request.contextPath}/mainfront?sid=godetail&no=' + marker2.getTitle()+"&id="+id;
 		});
 	}
-
+	 function page_move(url, loginId, no) {
+	        var form = document.createElement("form");
+	        var parm = new Array();
+	        var input = new Array();
+	        form.action = url;
+	        form.method = "post";
+	        parm.push( ['loginId', loginId] );
+	        parm.push( ['no', no] );
+	        for (var i = 0; i < parm.length; i++) {
+	            input[i] = document.createElement("input");
+	            input[i].setAttribute("type", "hidden");
+	            input[i].setAttribute('name', parm[i][0]);
+	            input[i].setAttribute("value", parm[i][1]);
+	            form.appendChild(input[i]);
+	        }
+	        document.body.appendChild(form);
+	        form.submit();
+	    }
 	$(document).ready(function() {
 		$('div[id=searchbutton]>a').click(function(event) {
 			var formData1 = $("input[name=les_kind]:checked").val();
 			var formData2 = $("input[name=les_price]:checked").val();
 			event.preventDefault();
 			$.ajax({
-				url : '../mainfront?sid=selectlessonbyno',
+				url : '${pageContext.request.contextPath}/mainfront?sid=selectlessonbyno',
 				type : 'post',
 				data : {
 					"arr" : arr,
@@ -303,7 +267,7 @@
 			circle.setRadius(jb * 1000);
 		});
 		$.ajax({
-			url : '../mainfront?sid=lessonmaker',
+			url : '${pageContext.request.contextPath}/mainfront?sid=lessonmaker',
 			type : 'GET',
 			/* 	data : '', */
 			dataType : "JSON",
@@ -475,6 +439,49 @@
 		}
 
 	}
+	
+	
+</script>
+<script>
+  ;window.channelPluginSettings = {
+    "pluginKey": "17a9d33e-e689-47d9-bdc6-767590ac6cfc"
+  };
+  (function() {
+    var w = window;
+    if (w.ChannelIO) {
+      return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+    }
+    var d = window.document;
+    var ch = function() {
+      ch.c(arguments);
+    };
+    ch.q = [];
+    ch.c = function(args) {
+      ch.q.push(args);
+    };
+    w.ChannelIO = ch;
+    function l() {
+      if (w.ChannelIOInitialized) {
+        return;
+      }
+      w.ChannelIOInitialized = true;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.async = true;
+      s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+      s.charset = 'UTF-8';
+      var x = document.getElementsByTagName('script')[0];
+      x.parentNode.insertBefore(s, x);
+    }
+    if (document.readyState === 'complete') {
+      l();
+    } else if (window.attachEvent) {
+      window.attachEvent('onload', l);
+    } else {
+      window.addEventListener('DOMContentLoaded', l, false);
+      window.addEventListener('load', l, false);
+    }
+  })();
 </script>
 
 <%@ include file="footer.jsp"%>

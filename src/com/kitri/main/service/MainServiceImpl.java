@@ -39,7 +39,10 @@ public class MainServiceImpl implements MainService {
 
 	@Override
 	public void selectLessonByNo(HttpServletRequest request, HttpServletResponse response) {
+		String loginId = request.getParameter("loginId");
 		String no = request.getParameter("no");
+		System.out.println(loginId +" " + no);
+		int i = MainDaoImpl.getMainDaoImpl().buyConfirm(loginId,no);
 		Lesson lesson = null;
 		lesson = MainDaoImpl.getMainDaoImpl().selectLessonByNo(no);
 		LessonDetail lessonDetail = null;
@@ -49,6 +52,7 @@ public class MainServiceImpl implements MainService {
 		request.setAttribute("lesson", lesson);
 		request.setAttribute("lessonDetail", lessonDetail);
 		request.setAttribute("likeList", likelist);
+		request.setAttribute("buyConfirm", i);
 
 	}
 
@@ -132,6 +136,14 @@ public class MainServiceImpl implements MainService {
 			request.setAttribute("loginClass", "");
 			break;
 		}
+	}
+
+	public void buyConfirm(HttpServletRequest request, HttpServletResponse response) {
+		String loginId = request.getParameter("loginId");
+		String les_no = request.getParameter("no");
+		System.out.println(loginId +" " + les_no);
+		int i = MainDaoImpl.getMainDaoImpl().buyConfirm(loginId,les_no);
+		request.setAttribute("buyConfirm", i);
 	}
 
 }

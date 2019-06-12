@@ -26,10 +26,6 @@ public class mainFrontServlet extends HttpServlet {
 		if ("lessonmaker".equals(sid)) {
 			MainController.getMainController().viewLessonMakerAjax(request, response);
 
-		} else if ("godetail".equals(sid)) {
-			path = MainController.getMainController().viewLessonDetailPage(request, response);
-			MoveUrl.forward(request, response, path);
-
 		} else if ("likelistinsert".equals(sid)) {
 			MainController.getMainController().likeListInsert(request, response);
 			MainController.getMainController().viewLikeList(request, response);
@@ -50,6 +46,13 @@ public class mainFrontServlet extends HttpServlet {
 			MoveUrl.forward(request, response, path);
 		} else if("selectId".equals(sid)) {
 			path = MainController.getMainController().viewLoginInfo(request, response);
+			MoveUrl.forward(request, response, path);
+		} /*
+			 * else if ("buyConfirm".equals(sid)) { path =
+			 * MainController.getMainController().viewBuyButton(request, response);
+			 * MoveUrl.redirect(request, response, path); }
+			 */ else if ("godetail".equals(sid)) {
+			path = MainController.getMainController().viewLessonDetailPage(request, response);
 			MoveUrl.forward(request, response, path);
 		}
 	}
