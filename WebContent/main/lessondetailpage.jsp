@@ -2,7 +2,20 @@
 	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <%@ include file="header.jsp" %>
- <c:set var = "loginInfo" value="${session.loginInfo}"></c:set>
+<c:choose>
+	<c:when test="${empty sessionScope.student && not empty sessionScope.teacher}">
+		<c:set var="id" value="${sessionScope.teacher}"></c:set>
+		<c:set var="loginClass" value="t"></c:set>
+	</c:when>
+	<c:when test="${not empty sessionScope.student && empty sessionScope.teacher}">
+		<c:set var="id" value="${sessionScope.student}"></c:set>
+		<c:set var="loginClass" value="s"></c:set>
+	</c:when>
+	<c:when test="${empty sessionScope.student && empty sessionScope.teacher && not empty sessionScope.admin}">
+		<c:set var="id" value="${sessionScope.admin}"></c:set>
+		<c:set var="loginClass" value="a"></c:set>
+	</c:when>
+</c:choose>
 <c:set var="lesson" value="${requestScope.lesson}"></c:set>
 <c:set var="lessonDetail" value="${requestScope.lessonDetail}"></c:set>
 <c:set var="likeList" value="${requestScope.likeList}"></c:set>
@@ -320,33 +333,39 @@
 					}
 				});
 				
-				var id = "${loginInfo.id}";
+				var id = "${id}";
 				var NS = '.test';
-				$(document).on('click', NS + ' .button', function(e) {
-					e.preventDefault();
-					$(this).closest('.button').toggleClass('selected');
-					
-					if($(this).closest('.button').hasClass("selected") === true) {
-						$.ajax({
-							url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id='+id,
-							type : 'get',
-							dataType: "text",
-							success : function(result){
-								$('#likeList2').html(result);
-							}
-						});	
-						} else {//delete필요
+				var loginClass = "${loginClass}";
+					$(document).on('click', NS + ' .button', function(e) {
+						e.preventDefault();
+				if (loginClass == "s") {
+						$(this).closest('.button').toggleClass('selected');
+						
+						if($(this).closest('.button').hasClass("selected") === true) {
 							$.ajax({
-								url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id='+id,
+								url : 'mainfront?sid=likelistinsert&no='+no+'&stu_id='+id,
 								type : 'get',
 								dataType: "text",
 								success : function(result){
-									$('#likeList1').html(result);
+									$('#likeList2').html(result);
 								}
 							});	
-						}
-					
-				});
+							} else {//delete필요
+								$.ajax({
+									url : 'mainfront?sid=likelistdelete&no='+no+'&stu_id='+id,
+									type : 'get',
+									dataType: "text",
+									success : function(result){
+										$('#likeList1').html(result);
+									}
+								});	
+							}
+						
+				} else {
+					$('.button').off('click');
+				}
+				
+					});
 			});
 		</script>
 		<%@ include file="footer.jsp" %>  

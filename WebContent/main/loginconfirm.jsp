@@ -11,12 +11,25 @@
 		</ul>
 	</c:when>
 	<c:when test="${loginClass eq 't'}">
-		<span><a href="#">${user.tea_name}</a>강사님 안녕하세요!</span>
+		<span>${user.tea_name} 강사님 안녕하세요!&nbsp;&nbsp;</span>
+		<ul class="main_nav">
+			<li><a href="courses.html">사용자 정보 수정</a></li>
+			<li><a href="courses.html">로그아웃</a></li>
+		</ul>
 	</c:when>
 	<c:when test="${loginClass eq 's'}">
-		<span><a href="#">${user.stu_name}</a>님 안녕하세요!</span>
+		<span>${user.stu_name} 님 안녕하세요!&nbsp;&nbsp;</span>
+		<ul class="main_nav">
+			<li><a href="courses.html">사용자 정보 수정</a></li>
+			<li><a href="courses.html">로그아웃</a></li>
+		</ul>
 	</c:when>
 	<c:when test="${loginClass eq 'a'}">
-		<span><a href="#">${user.admin_id}</a>관리자님 안녕하세요!</span>
+		<span>${user.admin_id} 관리자님 안녕하세요!&nbsp;&nbsp;</span>
+		<ul class="main_nav">
+			<li><a href="courses.html">사용자 정보 수정</a></li>
+			<li><a href="courses.html">로그아웃</a></li>
+		</ul>
 	</c:when>
+	
 </c:choose>

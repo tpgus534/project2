@@ -1,6 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ include file="header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:choose>
+	<c:when test="${empty sessionScope.student && not empty sessionScope.teacher}">
+		<c:set var="id" value="${sessionScope.teacher}"></c:set>
+		<c:set var="loginClass" value="t"></c:set>
+	</c:when>
+	<c:when test="${not empty sessionScope.student && empty sessionScope.teacher}">
+		<c:set var="id" value="${sessionScope.student}"></c:set>
+		<c:set var="loginClass" value="s"></c:set>
+	</c:when>
+	<c:when test="${empty sessionScope.student && empty sessionScope.teacher && not empty sessionScope.admin}">
+		<c:set var="id" value="${sessionScope.admin}"></c:set>
+		<c:set var="loginClass" value="a"></c:set>
+	</c:when>
+</c:choose>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=67cafe381089c40769059fbbedfa054e&libraries=services,clusterer,drawing"></script>
 <!-- Home -->
@@ -144,9 +159,9 @@
 				</form>
 			</div>
 			<div class="col-4 mt-2">
-					<label for="customRange">지역 범위 :</label><br> <input
-						type="range" class="align-middle" id="customRange" name="range"
-						min="0.5" max="3" step="0.5" value="2"> <label id="range">2</label><label>km</label>
+				<label for="customRange">지역 범위 :</label><br> <input
+					type="range" class="align-middle" id="customRange" name="range"
+					min="0.5" max="3" step="0.5" value="2"> <label id="range">2</label><label>km</label>
 			</div>
 		</div>
 		<div id="searchbutton" class="home_button trans_200">
@@ -171,18 +186,27 @@
 	</div>
 </div>
 <script type="text/javascript">
-	var arr=[];
+	var loginClass = '${loginClass}';
+	var stu_x = '${id.stu_x}';
+	var stu_y = '${id.stu_y}';
+	var arr = [];
 	var markers = [];
-	var selectMarkers=[];
+	var selectMarkers = [];
 	var container = document.getElementById('map');
-	var options = {
-		center : new daum.maps.LatLng(37.5028273473234, 126.9871525346085),
+	var options;
+	if (loginClass =='s'){
+	options = {
+		center : new daum.maps.LatLng(stu_x, stu_y),
 		level : 8
 	};
-
+	} else {
+		options = {
+				center : new daum.maps.LatLng(37.5028273473234, 126.9871525346085),
+				level : 8};
+	}
 	var map = new daum.maps.Map(container, options);
 
-	 var imageSrc = './images/member_marker.png', // 마커이미지의 주소입니다    
+	var imageSrc = './images/member_marker.png', // 마커이미지의 주소입니다    
 	imageSize = new daum.maps.Size(64, 69), // 마커이미지의 크기입니다
 	imageOption = {
 		offset : new daum.maps.Point(30, 55)
@@ -213,53 +237,54 @@
 		fillOpacity : 0.7
 	// 채우기 불투명도 입니다   
 	});
-	var imageSrc2 = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-	
+	var imageSrc2 = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
 	// 마커를 생성하고 지도위에 표시하는 함수입니다
-	function addMarker(position,title) {
-	    
-	    // 마커를 생성합니다
-	    var marker2 = new daum.maps.Marker({
-	        position: position
-	    });
-	    marker2.setTitle(title);
+	function addMarker(position, title) {
 
-	    // 마커가 지도 위에 표시되도록 설정합니다
-	    marker2.setMap(map);
-	    
-	    // 생성된 마커를 배열에 추가합니다
-	    markers.push(marker2);
-	  
-	    var iwContent = '<div id="mtitle" class="mx-auto" style="width:5rem;">'+marker2.getTitle()+'</div>';
-	    var infowindow = new daum.maps.InfoWindow({
-	        position : position, 
-	        content : iwContent 
-	    });
-	    daum.maps.event.addListener(marker2, 'mouseover', function() {
-	    	infowindow.open(map, marker2);
-	    });
-	    daum.maps.event.addListener(marker2, 'mouseout', function() {
-	    	 infowindow.close();
-	    });
-	   
-	    daum.maps.event.addListener(marker2, 'click', function() {
-	       location.href = 'mainfront?sid=godetail&no='+marker2.getTitle();
-	    });
+		// 마커를 생성합니다
+		var marker2 = new daum.maps.Marker({
+			position : position
+		});
+		marker2.setTitle(title);
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker2.setMap(map);
+
+		// 생성된 마커를 배열에 추가합니다
+		markers.push(marker2);
+
+		var iwContent = '<div id="mtitle" class="mx-auto" style="width:5rem;">'
+				+ marker2.getTitle() + '</div>';
+		var infowindow = new daum.maps.InfoWindow({
+			position : position,
+			content : iwContent
+		});
+		daum.maps.event.addListener(marker2, 'mouseover', function() {
+			infowindow.open(map, marker2);
+		});
+		daum.maps.event.addListener(marker2, 'mouseout', function() {
+			infowindow.close();
+		});
+
+		daum.maps.event.addListener(marker2, 'click', function() {
+			location.href = '../mainfront?sid=godetail&no=' + marker2.getTitle();
+		});
 	}
-	
+
 	$(document).ready(function() {
 		$('div[id=searchbutton]>a').click(function(event) {
 			var formData1 = $("input[name=les_kind]:checked").val();
 			var formData2 = $("input[name=les_price]:checked").val();
-			event.preventDefault(); 
+			event.preventDefault();
 			$.ajax({
-				url : 'mainfront?sid=selectlessonbyno',
+				url : '../mainfront?sid=selectlessonbyno',
 				type : 'post',
-				data :{"arr" : arr,
-						"les_kind" : formData1,
-						"les_price" : formData2,
-						},
+				data : {
+					"arr" : arr,
+					"les_kind" : formData1,
+					"les_price" : formData2,
+				},
 				traditional : true,
 				//dataType : "JSON",
 				dataType : "html",
@@ -269,8 +294,8 @@
 				error : function(q, w, e) {
 					alert(q + w + e);
 				}
-			}); 
-			  
+			});
+
 		});
 		$('input[name=range]').change(function() {
 			var jb = $('input[name=range]').val();
@@ -278,22 +303,22 @@
 			circle.setRadius(jb * 1000);
 		});
 		$.ajax({
-			url : 'mainfront?sid=lessonmaker',
+			url : '../mainfront?sid=lessonmaker',
 			type : 'GET',
-		/* 	data : '', */
+			/* 	data : '', */
 			dataType : "JSON",
 			success : function(result) {
 				console.log(result);
-					for (var i = 0; i < result.length; i++) {
-						var lat = result[i].les_x;
-						var lug = result[i].les_y;
-						var title = result[i].les_no;
-					addMarker(new daum.maps.LatLng(lat,lug),title);
-					}			
-			}	
+				for (var i = 0; i < result.length; i++) {
+					var lat = result[i].les_x;
+					var lug = result[i].les_y;
+					var title = result[i].les_no;
+					addMarker(new daum.maps.LatLng(lat, lug), title);
+				}
+			}
 		});
 	});
-	
+
 	daum.maps.event.addListener(map, 'click', function(mouseEvent) {
 		var latlng = mouseEvent.latLng;
 		marker.setPosition(latlng);
@@ -310,10 +335,9 @@
 				detailAddr += '<div>' + result[0].address.address_name
 						+ '</div>';
 
-				var content = '<div class="bAddr">'
-						+ detailAddr
-						+ '</div>';
-				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng.getLng());
+				var content = '<div class="bAddr">' + detailAddr + '</div>';
+				markerSet(mouseEvent.latLng.getLat(), mouseEvent.latLng
+						.getLng());
 
 				selectDistanceLesson(marker);
 			}
@@ -350,53 +374,70 @@
 	}
 
 	var searchadd = $("#ipadd");
-	$(searchadd).keyup(function() {
-		var sid = $(searchadd).val();
-		console.log(sid);
-		if (sid.length != 0) {
-			$.ajax({
-				url : 'https://dapi.kakao.com/v2/local/search/address.json?query='+ sid,
-				headers : {'Authorization' : 'KakaoAK a6462a6cb3e275f85632af19d7ec24cb'},
-				type : 'GET'}).done(function(result) {
-									console.log(result);
-									var list = result.documents;
-									if (list.length != 0) {
-										var html = "<span><a href='#' id='a0' data-y='"+list[0].y+"' data-x='"+list[0].x+"'>"
+	$(searchadd)
+			.keyup(
+					function() {
+						var sid = $(searchadd).val();
+						console.log(sid);
+						if (sid.length != 0) {
+							$
+									.ajax(
+											{
+												url : 'https://dapi.kakao.com/v2/local/search/address.json?query='
+														+ sid,
+												headers : {
+													'Authorization' : 'KakaoAK a6462a6cb3e275f85632af19d7ec24cb'
+												},
+												type : 'GET'
+											})
+									.done(
+											function(result) {
+												console.log(result);
+												var list = result.documents;
+												if (list.length != 0) {
+													var html = "<span><a href='#' id='a0' data-y='"+list[0].y+"' data-x='"+list[0].x+"'>"
 															+ list[0].address_name
 															+ "</a></span><br>";
-										console.log($("#addressresult>span>a[id=a0]"));
-										for (var i = 1; i < list.length; i++) {
-											html += "<span><a href='#' id='a"+i+"' data-y='"+list[i].y+"' data-x='"+list[i].x+"'>"
+													console
+															.log($("#addressresult>span>a[id=a0]"));
+													for (var i = 1; i < list.length; i++) {
+														html += "<span><a href='#' id='a"+i+"' data-y='"+list[i].y+"' data-x='"+list[i].x+"'>"
 																+ list[i].address_name
 																+ "</a></span><br>";
 
-										}
+													}
 
-										$("#addressresult").html(html);
-									}
+													$("#addressresult").html(
+															html);
+												}
 
-							});
+											});
 						} else {
 							$("#addressresult").html("111");
 						}
 
 					});
-	$(document).ready(function() {
-		$(document).on('click', '#addressresult > span > a', function(e) {
-			e.preventDefault();
-			console.log($(this).html())
-			$("#ipadd").val($(this).html());
-			$("#ipadd").data("x", $(this).data("x"))
-			$("#ipadd").data("y", $(this).data("y"))
-			});
+	$(document).ready(
+			function() {
+				$(document).on('click', '#addressresult > span > a',
+						function(e) {
+							e.preventDefault();
+							console.log($(this).html())
+							$("#ipadd").val($(this).html());
+							$("#ipadd").data("x", $(this).data("x"))
+							$("#ipadd").data("y", $(this).data("y"))
+						});
 
-			$("#go").click(function() {
-				markerSet($("#ipadd").data("y"), $("#ipadd").data("x"));
-				//	map.setCenter(new daum.maps.LatLng($("#ipadd").data("y"), $("#ipadd").data("x")));
-				var moveLatLng = new daum.maps.LatLng($("#ipadd").data("y"), $("#ipadd").data("x"));
-				map.setLevel(6);
-				map.panTo(moveLatLng);
-				});
+				$("#go").click(
+						function() {
+							markerSet($("#ipadd").data("y"), $("#ipadd").data(
+									"x"));
+							//	map.setCenter(new daum.maps.LatLng($("#ipadd").data("y"), $("#ipadd").data("x")));
+							var moveLatLng = new daum.maps.LatLng($("#ipadd")
+									.data("y"), $("#ipadd").data("x"));
+							map.setLevel(6);
+							map.panTo(moveLatLng);
+						});
 
 			});
 	function markerSet(lat, lng) {
@@ -412,28 +453,27 @@
 		marker.setMap(map);
 		circle.setMap(map);
 	}
-	
-	function selectDistanceLesson(marker){
-		arr=[];
-		selectMarkers=[];
+
+	function selectDistanceLesson(marker) {
+		arr = [];
+		selectMarkers = [];
 		var m1 = marker.getPosition();
 		for (var i = 0; i < markers.length; i++) {
 			var m2 = markers[i].getPosition();
 			var linePath = new daum.maps.Polyline({
-				map:map,
-				path:[m1, m2]
-				});
-			if (linePath.getLength() < $('input[name=range]').val()*1000) {
+				map : map,
+				path : [ m1, m2 ]
+			});
+			if (linePath.getLength() < $('input[name=range]').val() * 1000) {
 				selectMarkers.push(markers[i]);
 			}
 			linePath.setMap(null);
 		}
-		
+
 		for (var j = 0; j < selectMarkers.length; j++) {
 			arr.push(selectMarkers[j].getTitle());
 		}
-	
-		
+
 	}
 </script>
 

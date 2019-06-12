@@ -35,12 +35,12 @@ public class MainController {
 	}
 	public String viewLessonSelectAjax(HttpServletRequest request, HttpServletResponse response) {
 		MainServiceImpl.getMainServiceImpl().selectLessonByNos(request,response);
-		String path = "/lesson.jsp";
+		String path = "main/lesson.jsp";
 		return path;
 	}
 	public String viewLessonDetailPage(HttpServletRequest request, HttpServletResponse response) {
 		MainServiceImpl.getMainServiceImpl().selectLessonByNo(request, response);
-		String path = "lessondetailpage.jsp";
+		String path = "main/lessondetailpage.jsp";
 		return path;
 	}
 	public void viewLikeList(HttpServletRequest request, HttpServletResponse response) {
@@ -59,7 +59,7 @@ public class MainController {
 		
 	}
 	public String viewLoginInfo(HttpServletRequest request, HttpServletResponse response) {
-		String path = "/loginconfirm.jsp";
+		String path = "main/loginconfirm.jsp";
 		MainServiceImpl.getMainServiceImpl().viewLoginInfo(request, response);
 		return path;
 	}
